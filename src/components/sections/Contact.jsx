@@ -12,8 +12,13 @@ export const Contact = () => {
    const handleSubmit = (e) => {
       e.preventDefault();
 
-      emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, e.target, import.meta.env.VITE_PUBLIC_KEY).then(
-         (result) => {
+      emailjs.sendForm(
+         import.meta.env.VITE_SERVICE_ID,
+         import.meta.env.VITE_TEMPLATE_ID,
+         e.target,
+         import.meta.env.VITE_PUBLIC_KEY
+      ).then(
+         () => {
             alert("Message sent successfully!");
             setFormData({ name: "", email: "", message: "" });
          },
@@ -26,62 +31,59 @@ export const Contact = () => {
    return (
       <section
          id="contact"
-         className="min-h-screen flex flex-col justify-center items-center text-center relative py-20"
+         className="py-24 flex flex-col justify-center items-center text-center relative"
       >
          <RevealOnScroll>
-            <div className="w-full px-4 sm:w-96">
-               <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+            <div className="w-full max-w-4xl px-6 md:px-12">
+               <h2 className="text-3xl md:text-4xl font-bold mb-10 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
                   Get in Touch
                </h2>
-               <form className="space-y-4" onSubmit={handleSubmit}>
-                  <div className="relative">
-                     <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        className="w-full bg-white-5 border border-blue -300 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                        placeholder="Name..."
-                        required
-                        onChange={(e) =>
-                           setFormData({ ...formData, name: e.target.value })
-                        }
-                     />
-                  </div>
+               <form
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"
+                  onSubmit={handleSubmit}
+               >
+                  <input
+                     type="text"
+                     id="name"
+                     name="name"
+                     value={formData.name}
+                     className="w-full bg-[#111] border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
+                     placeholder="Your name..."
+                     required
+                     onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                     }
+                  />
 
-                  <div className="relative">
-                     <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        className="w-full bg-white-5 border border-blue-300 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                        placeholder="Example@gmail.com"
-                        required
-                        onChange={(e) =>
-                           setFormData({ ...formData, email: e.target.value })
-                        }
-                     />
-                  </div>
+                  <input
+                     type="email"
+                     id="email"
+                     name="email"
+                     value={formData.email}
+                     className="w-full bg-[#111] border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
+                     placeholder="Your email..."
+                     required
+                     onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                     }
+                  />
 
-                  <div className="relative">
-                     <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        rows={5}
-                        className="w-full bg-white-5 border border-blue-300 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                        placeholder="Your message..."
-                        required
-                        onChange={(e) =>
-                           setFormData({ ...formData, message: e.target.value })
-                        }
-                     />
-                  </div>
+                  <textarea
+                     id="message"
+                     name="message"
+                     value={formData.message}
+                     rows={6}
+                     className="md:col-span-2 w-full bg-[#111] border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
+                     placeholder="Your message..."
+                     required
+                     onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                     }
+                  />
 
                   <button
                      type="submit"
-                     className="w-full bg-blue-500 text-white py-3 px-6 rounded font-medium transition hover:-translate-y-0.5 hover:shadow-lg"
+                     className="md:col-span-2 w-full bg-blue-500 text-white py-3 px-6 rounded font-medium transition transform hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
                   >
                      Send Message
                   </button>

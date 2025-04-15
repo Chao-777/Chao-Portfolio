@@ -99,13 +99,23 @@ export const About = () => {
                         <h3 className="text-xl font-bold mb-4">
                            Education
                         </h3>
+                        <p className="text-sm font-semibold mb-2">
+                           Master's in Software Development - Griffith University (2023 - 2025)
+                        </p>
                         <ul className="text-sm list-disc list-inside text-gray-300 space-y-2">
-                           <li>
-                              <strong>Master's in Software Development</strong> - Griffith University (2023 - 2025)
-                           </li>
-                           <li>
-                              Relevant Courses: Software Engineering, Database Design, Cloud Computing, Full-Stack Development, and Agile Project Management...
-                           </li>
+                           <p className="mt-2 mb-2">
+                           Relevant Courses:
+                           </p>
+                           <li>Software Engineering</li>
+                           <li>Database Design</li>
+                           <li>Cloud Computing</li>
+                           <li>Secure Development Operations </li>
+                           <li>Mobile App Development</li>
+                           <li>Data Structures and Algorithms</li>
+                           <li>Web Application Development</li>
+                           <li>Software Testing and Quality Assurance</li>
+                           <li>Agile Software Development</li>
+                           <li>ITIL Foundations</li>
                         </ul>
                      </div>
 
@@ -114,7 +124,9 @@ export const About = () => {
                            Experience
                         </h3>
                         <h4 className="text-sm font-semibold">
+                           <p className="mb-2">
                            Junior Developer Intern - ApyApp (Mar 2025 - Present)
+                           </p>
                         </h4> 
                         <ul className="text-sm list-disc list-inside text-gray-300 space-y-2">
                            <li>
