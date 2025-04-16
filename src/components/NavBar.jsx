@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import favicon from '../assets/favicon.png';
 
 export const NavBar = ({ menuOpen, setMenuOpen }) => {
    useEffect(() => {
@@ -12,7 +13,7 @@ export const NavBar = ({ menuOpen, setMenuOpen }) => {
 
                {/* Left: Logo */}
                <a href="#home" className="font-mono text-xl font-bold text-white">
-                  <img src="/favicon.png" alt="Logo" className="h-10" />
+                  <img src={favicon} alt="Logo" className="h-10" />
                </a>
 
                {/* Center: Navigation links */}
