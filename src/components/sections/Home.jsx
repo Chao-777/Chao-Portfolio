@@ -3,13 +3,13 @@
 export const Home = () => {
    return (
       <section id="home" className="min-h-screen flex justify-center items-center text-center relative">
-            <div className="max-w-7xl mx-auto px-4 text-center z-10">
-               <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+            <div className="w-full mx-auto px-4 md:px-8 lg:px-16 xl:px-24 text-center z-10">
+               <h1 className="text-5xl md:text-7xl font-bold mb-3 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
                   Hi, This is Chao Yuan
                </h1>
 
-               <p className="text-gray-400 text-lg max-w-3xl mx-auto mb-8">
-                  I'm an IT graduate with a Master’s in Software Development (GPA 6.5/7) and
+               <p className="text-gray-400 text-lg max-w-4xl mx-auto mb-8">
+                  I'm an IT graduate with a Master's in Software Development (GPA 6.5/7) and
                   hands-on experience building APIs, mobile apps, and cloud-based systems. Skilled in
                   Python, PHP, JavaScript, AWS, and Agile. Currently interning as a Junior Developer on
                   a real-world project with an ex-FAANG team.

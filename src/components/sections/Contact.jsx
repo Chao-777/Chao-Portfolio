@@ -34,8 +34,8 @@ export const Contact = () => {
          className="py-24 flex flex-col justify-center items-center text-center relative"
       >
          <RevealOnScroll>
-            <div className="w-full max-w-4xl px-6 md:px-12">
-               <h2 className="text-3xl md:text-4xl font-bold mb-10 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+            <div className="w-full max-w-6xl px-4 md:px-8 lg:px-16 xl:px-24">
+               <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
                   Get in Touch
                </h2>
                <form

@@ -1,4 +1,4 @@
-import { RevealOnScroll } from "../RevealOnScroll";
+
 
 export const About = () => {
    const programmingLanguages = [
@@ -32,9 +32,8 @@ export const About = () => {
 
    return (
       <section id="about" className="min-h-screen py-20">
-         <RevealOnScroll>
-            <div className="max-w-5xl mx-auto px-4">
-               <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+            <div className="w-full mx-auto px-4 md:px-8 lg:px-16 xl:px-24">
+               <h2 className="text-3xl font-bold mb-3 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
                   About Me
                </h2>
                <div className="glass rounded-xl p-8 border-white/20 border hover:-translate-y-1 transition-all">
@@ -152,7 +151,6 @@ export const About = () => {
                   </div>
                </div>
             </div>
-         </RevealOnScroll>
       </section>
    );
 };
