@@ -9,10 +9,10 @@ export const Home = () => {
                </h1>
 
                <p className="text-gray-400 text-lg max-w-4xl mx-auto mb-8">
-                  I'm an IT graduate with a Master's in Software Development (GPA 6.5/7) and
-                  hands-on experience building APIs, mobile apps, and cloud-based systems. Skilled in
-                  Python, PHP, JavaScript, AWS, and Agile. Currently interning as a Junior Developer on
-                  a real-world project with an ex-FAANG team.
+               Software Developer with AWS Certified Solutions Architect – Associate and AWS Cloud Practitioner
+certifications. Completed a full-stack development internship with hands-on experience in Node.js,
+RESTful API development and database design. I also have project experience in .NET, React,
+
                </p>
 
                <div className="flex justify-center space-x-4">
