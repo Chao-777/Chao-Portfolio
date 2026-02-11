@@ -5,6 +5,8 @@ export const About = () => {
       { name: 'HTML5' },
       { name: 'Python' },
       { name: 'JavaScript' },
+      { name: 'TypeScript' },
+      { name: 'C#' },
       { name: 'PHP' },
       { name: 'CSS' },
    ];
@@ -14,13 +16,14 @@ export const About = () => {
       { name: 'React Native' },
       { name: 'Laravel' },
       { name: 'Node.js' },
-      { name: 'VUE' },
+      { name: '.NET' },
    ];
 
    const toolsPlatforms = [
       { name: 'Git' },
       { name: 'GitHub' },
       { name: 'MongoDB' },
+      { name: 'PostgreSQL' },
       { name: 'MySQL' },
       { name: 'AWS' },
       { name: 'Tailwind' },
@@ -28,6 +31,11 @@ export const About = () => {
       { name: 'Docker' },
       { name: 'K8s' },
       { name: 'ITIL' },
+   ];
+
+   const certifications = [
+      { name: 'AWS Certified Solutions Architect - Associate' },
+      { name: 'AWS Certified Cloud Practitioner' },
    ];
 
    return (
@@ -93,6 +101,22 @@ export const About = () => {
                      </div>
                   </div>
 
+                  <div className="rounded-xl p-6 hover:-translate-y-1 transition-all mt-6">
+                     <h3 className="text-xl font-bold mb-4 text-left">
+                        Certifications
+                     </h3>
+                     <div className="flex flex-wrap gap-2">
+                        {certifications.map((skill) => (
+                           <span
+                              key={skill.name}
+                              className="bg-blue-500/10 text-blue-500 px-3 py-1 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition"
+                           >
+                              {skill.name}
+                           </span>
+                        ))}
+                     </div>
+                  </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                      <div className="p-6 rounded-xl border-white/20 hover:-translate-y-1 transition-all text-left">
                         <h3 className="text-xl font-bold mb-4">
@@ -124,28 +148,21 @@ export const About = () => {
                         </h3>
                         <h4 className="text-sm font-semibold">
                            <p className="mb-2">
-                           Junior Developer Intern - ApyApp (Mar 2025 - Present)
+                           Junior Developer Intern - ApyApp (Mar 2025 - Jul 2025)
                            </p>
                         </h4> 
                         <ul className="text-sm list-disc list-inside text-gray-300 space-y-2">
                            <li>
-                              Developing a parking access control system with slot management and guest token allocation for residential and commercial use.
-                           </li>
+                           Developed features for a parking management web application using Node.js and
+                           responsive HTML/CSS/Bootstrap                           </li>
                            <li>
-                              Building and deploying a serverless REST API using microservices architecture with real-time and traditional databases.
-                           </li>
+                           Implemented role-based access control and secure authentication for different user types                           </li>
                            <li>
-                              Contributing to the development of Android and iOS mobile applications.
-                           </li>
+                           Built booking and payment workflows supporting multiple properties                           </li>
                            <li>
-                              Setting up and managing development, sandbox, and production environments.
-                           </li>
+                           Contributed to admin tools for managing users, properties, and transactions                           </li>
                            <li>
-                              Collaborating with an ex-FAANG team in an agile environment, utilizing Slack, Jira, and Notion for team coordination and project management.
-                           </li>
-                           <li>
-                              Working toward the delivery of an MVP consisting of a functional API and mobile applications.
-                           </li>
+                           Collaborated with a cross-functional team using Git version control and Agile methodology                           </li>
                         </ul>
                      </div>
                   </div>
