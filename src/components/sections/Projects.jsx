@@ -19,7 +19,7 @@ export const Projects = () => {
                      A full-stack web application that allows users to review, rate, comment on, and discuss **anything** across flexible categories — including products, books, media, ideas, and experiences. The platform is designed to encourage open discussion, feedback, and community interaction.
                      </p>
                      <div className="flex flex-wrap text-left gap-2 mb-4">
-                        {["C#", ".NET", "TypeScript", "React","JWT"].map((tech,key) => (
+                        {["C#", ".NET", "TypeScript", "React","JWT", "PostgreSQL", "Tailwind", "AWS", "CI/CD"].map((tech,key) => (
                            <span
                               key={key}
                               className="bg-blue-500/10 text-blue-500 px-3 py-1 rounded-full text-sm 
@@ -47,7 +47,7 @@ export const Projects = () => {
                      and guest token allocation for residential and commercial use.
                      </p>
                      <div className="flex flex-wrap text-left gap-2 mb-4">
-                        {["JavaScript", "React", "MySql", "Node.js","AWS"].map((tech,key) => (
+                        {["JavaScript", "Typescript", "EJS", "MySql", "Node.js","Bootstrap", "CI/CD"].map((tech,key) => (
                            <span
                               key={key}
                               className="bg-blue-500/10 text-blue-500 px-3 py-1 rounded-full text-sm 
@@ -77,7 +77,7 @@ export const Projects = () => {
                      experience.
                      </p>
                      <div className="flex flex-wrap text-left gap-2 mb-4">
-                        {["PHP", "Laravel", "MySql", "Bootstrap"].map((tech,key) => (
+                        {["PHP", "Laravel", "MySQL", "Bootstrap", "Blade"].map((tech,key) => (
                            <span
                               key={key}
                               className="bg-blue-500/10 text-blue-500 px-3 py-1 rounded-full text-sm 
