@@ -10,10 +10,37 @@ export const Projects = () => {
                   Featured Projects
                </h2>
                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+               <div className="rounded-xl p-6 border border-white/20 hover:-translate-y-1 
+                  hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all">         
+                     <h3 className="text-xl font-bold mb-2">
+                        ReviewIt
+                     </h3>
+                     <p className="text-gray-300 mb-4 text-left">
+                     A full-stack web application that allows users to review, rate, comment on, and discuss **anything** across flexible categories — including products, books, media, ideas, and experiences. The platform is designed to encourage open discussion, feedback, and community interaction.
+                     </p>
+                     <div className="flex flex-wrap text-left gap-2 mb-4">
+                        {["C#", ".NET", "TypeScript", "React","JWT"].map((tech,key) => (
+                           <span
+                              key={key}
+                              className="bg-blue-500/10 text-blue-500 px-3 py-1 rounded-full text-sm 
+                              hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition"
+                           >
+                              {tech}
+                           </span>
+                        ))}
+                     </div>
+
+                     <div className="justify-between items-center text-left mt-4">
+                        <a href="https://github.com/Chao-777/ReviewIt" className="text-blue-400 hover:text-blue-200 transition-colors my-4">
+                        View Project →
+                        </a>
+                     </div>
+                  </div>
+
                   <div className="rounded-xl p-6 border border-white/20 hover:-translate-y-1 
                   hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all">         
                      <h3 className="text-xl font-bold mb-2">
-                        Residential Parking System
+                        EasyPark
                      </h3>
                      <p className="text-gray-300 mb-4 text-left">
                      A parking access control system with slot management
