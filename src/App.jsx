@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import './App.css';
+import { useState, useEffect } from 'react';
 import './index.css';
 import { LoadingScreen } from './components/LoadingScreen';
 import { NavBar } from './components/NavBar';
@@ -13,20 +12,40 @@ import { Footer } from './components/Footer';
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState('night');
+
+  // Apply theme class to body so CSS vars cascade everywhere
+  useEffect(() => {
+    document.body.classList.toggle('day-mode', theme === 'day');
+  }, [theme]);
 
   return (
-      <>
-        {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
-        <div className={`min-h-screen transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'} bg-black text-gray-100`}>
-          <NavBar menuOpen ={menuOpen} setMenuOpen ={setMenuOpen}/>
-          <MobileMenu menuOpen ={menuOpen} setMenuOpen ={setMenuOpen}/>
-          <Home/>
-          <About/>
-          <Projects/>
-          <Contact/>
-          <Footer/>
-        </div>
-      </>
+    <>
+      {/* CRT scanlines overlay */}
+      <div
+        className="fixed inset-0 pointer-events-none z-50"
+        style={{
+          background:
+            'repeating-linear-gradient(0deg, transparent, transparent 2px, var(--c-scanlines) 2px, var(--c-scanlines) 4px)',
+        }}
+      />
+
+      {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
+
+      <div
+        className={`min-h-screen transition-opacity duration-700 ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <NavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} theme={theme} setTheme={setTheme} />
+        <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} theme={theme} setTheme={setTheme} />
+        <Home />
+        <About />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
+    </>
   );
 }
 

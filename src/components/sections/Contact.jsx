@@ -1,95 +1,155 @@
-import { useState } from "react";
-import { RevealOnScroll } from "../RevealOnScroll";
-import emailjs from "emailjs-com";
+import { useState } from 'react';
+import { RevealOnScroll } from '../RevealOnScroll';
+import emailjs from 'emailjs-com';
+
+const FieldLabel = ({ children }) => (
+  <label
+    className="block text-xs mb-1.5"
+    style={{
+      color: 'var(--c-label)',
+      fontFamily: 'JetBrains Mono',
+      letterSpacing: '0.12em',
+    }}
+  >
+    {children}
+  </label>
+);
 
 export const Contact = () => {
-   const [formData, setFormData] = useState({
-      name: "",
-      email: "",
-      message: ""
-   });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-   const handleSubmit = (e) => {
-      e.preventDefault();
+  const [error, setError] = useState('');
 
-      emailjs.sendForm(
-         import.meta.env.VITE_SERVICE_ID,
-         import.meta.env.VITE_TEMPLATE_ID,
-         e.target,
-         import.meta.env.VITE_PUBLIC_KEY
-      ).then(
-         () => {
-            alert("Message sent successfully!");
-            setFormData({ name: "", email: "", message: "" });
-         },
-         () => {
-            alert("Oops, something went wrong");
-         }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError('');
+
+    if (!formData.name.trim()) {
+      setError('VALIDATION_ERROR: SENDER_ID is required.');
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email.trim())) {
+      setError('VALIDATION_ERROR: Invalid CHANNEL format.');
+      return;
+    }
+    if (!formData.message.trim()) {
+      setError('VALIDATION_ERROR: MESSAGE cannot be empty.');
+      return;
+    }
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
+        e.target,
+        import.meta.env.VITE_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          alert('TRANSMISSION_SUCCESS: Message sent.');
+          setFormData({ name: '', email: '', message: '' });
+        },
+        () => {
+          setError('TRANSMISSION_ERROR: Failed to send. Try again.');
+        }
       );
-   };
+  };
 
-   return (
-      <section
-         id="contact"
-         className="py-24 flex flex-col justify-center items-center text-center relative"
-      >
-         <RevealOnScroll>
-            <div className="w-full max-w-6xl px-4 md:px-8 lg:px-16 xl:px-24">
-               <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
-                  Get in Touch
-               </h2>
-               <form
-                  className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"
-                  onSubmit={handleSubmit}
-               >
+  return (
+    <section id="contact" className="py-24 flex flex-col justify-center items-center">
+      <RevealOnScroll>
+        <div className="w-full max-w-3xl px-4 md:px-8">
+
+          <div
+            className="text-xs mb-2"
+            style={{
+              color: 'var(--c-label)',
+              fontFamily: 'JetBrains Mono',
+              letterSpacing: '0.2em',
+            }}
+          >
+            &gt; ESTABLISH_CONNECTION
+          </div>
+          <h2
+            className="text-2xl font-bold mb-8 glow"
+            style={{
+              color: 'var(--c-primary)',
+              fontFamily: 'JetBrains Mono',
+              letterSpacing: '0.1em',
+            }}
+          >
+            CONTACT_ME
+          </h2>
+
+          <div className="term-panel p-8">
+            <form onSubmit={handleSubmit} className="space-y-5">
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div>
+                  <FieldLabel>SENDER_ID:</FieldLabel>
                   <input
-                     type="text"
-                     id="name"
-                     name="name"
-                     value={formData.name}
-                     className="w-full bg-[#111] border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-                     placeholder="Your name..."
-                     required
-                     onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                     }
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    placeholder="your name..."
+                    required
+                    className="term-input"
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
-
+                </div>
+                <div>
+                  <FieldLabel>CHANNEL:</FieldLabel>
                   <input
-                     type="email"
-                     id="email"
-                     name="email"
-                     value={formData.email}
-                     className="w-full bg-[#111] border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-                     placeholder="Your email..."
-                     required
-                     onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                     }
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    placeholder="your email..."
+                    required
+                    className="term-input"
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
+                </div>
+              </div>
 
-                  <textarea
-                     id="message"
-                     name="message"
-                     value={formData.message}
-                     rows={6}
-                     className="md:col-span-2 w-full bg-[#111] border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-                     placeholder="Your message..."
-                     required
-                     onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                     }
-                  />
+              <div>
+                <FieldLabel>MESSAGE:</FieldLabel>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  rows={6}
+                  placeholder="your message..."
+                  required
+                  className="term-input"
+                  style={{ resize: 'vertical' }}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                />
+              </div>
 
-                  <button
-                     type="submit"
-                     className="md:col-span-2 w-full bg-blue-500 text-white py-3 px-6 rounded font-medium transition transform hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
-                  >
-                     Send Message
-                  </button>
-               </form>
-            </div>
-         </RevealOnScroll>
-      </section>
-   );
+              {error && (
+                <div
+                  className="text-xs"
+                  style={{
+                    color: 'var(--c-primary)',
+                    fontFamily: 'JetBrains Mono',
+                    border: '1px solid var(--c-border)',
+                    padding: '8px 12px',
+                    background: 'var(--c-panel)',
+                  }}
+                >
+                  ! {error}
+                </div>
+              )}
+
+              <button type="submit" className="term-btn w-full">
+                ▶ TRANSMIT_MESSAGE
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+      </RevealOnScroll>
+    </section>
+  );
 };

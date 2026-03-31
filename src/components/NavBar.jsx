@@ -1,53 +1,104 @@
-import { useEffect } from 'react';
-import favicon from '../assets/favicon.png';
+import { useEffect, useState } from 'react';
 
-export const NavBar = ({ menuOpen, setMenuOpen }) => {
-   useEffect(() => {
-      document.body.style.overflow = menuOpen ? 'hidden' : '';
-   }, [menuOpen]);
+const pad = (n) => String(n).padStart(2, '0');
+const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 
-   return (
-      <nav className="sticky rounded border border-white top-0 w-full z-40 bg-[rgba(10,10,10,0.8)] backdrop-blur-lg border-b border-white/20 shadow-lg">
-         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
+export const NavBar = ({ menuOpen, setMenuOpen, theme, setTheme }) => {
+  const [time, setTime] = useState('');
 
-               {/* Left: Logo */}
-               <a href="#home" className="font-mono text-xl font-bold text-white">
-                  <img src={favicon} alt="Logo" className="h-10" />
-               </a>
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+  }, [menuOpen]);
 
-               {/* Center: Navigation links */}
-               <div className="hidden md:flex flex-1 justify-center items-center space-x-8">
-                  <a href="#home" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                     Home
-                  </a>
-                  <a href="#about" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                     About
-                  </a>
-                  <a href="#projects" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                     Projects
-                  </a>
-               </div>
+  useEffect(() => {
+    const tick = () => {
+      const now = new Date();
+      const date = `${pad(now.getDate())}-${MONTHS[now.getMonth()]}-${now.getFullYear()}`;
+      const clock = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+      setTime(`${date} ${clock}`);
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
 
-               {/* Right: Contact button */}
-               <div className="hidden md:block">
-                  <a
-                     href="#contact"
-                     className="px-4 py-2 border border-blue-500 text-blue-500 font-semibold rounded hover:bg-blue-500 hover:text-black transition duration-300"
-                  >
-                     Contact Me
-                  </a>
-               </div>
+  const isDay = theme === 'day';
 
-               {/* Mobile menu icon */}
-               <div
-                  onClick={() => setMenuOpen((prev) => !prev)}
-                  className="w-7 h-5 text-3xl mb-5 relative z-40 cursor-pointer md:hidden"
-               >
-                  &#9776;
-               </div>
-            </div>
-         </div>
-      </nav>
-   );
+  return (
+    <nav
+      className="sticky top-0 w-full z-40"
+      style={{
+        background: 'var(--c-nav-bg)',
+        borderBottom: '1px solid var(--c-border)',
+        backdropFilter: 'blur(8px)',
+        fontFamily: 'JetBrains Mono',
+        transition: 'background 0.4s ease, border-color 0.4s ease',
+      }}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Row 1 — Node / Title / Clock */}
+        <div
+          className="flex justify-between items-center py-1.5"
+          style={{ borderBottom: '1px solid var(--c-border)' }}
+        >
+          <span className="text-xs" style={{ color: 'var(--c-label)' }}>
+            Node:&nbsp;<span style={{ color: 'var(--c-primary)' }}>CHAO_YUAN</span>
+          </span>
+          <span
+            className="hidden md:block text-xs font-bold glow"
+            style={{ color: 'var(--c-primary)', letterSpacing: '0.18em' }}
+          >
+            PORTFOLIO_SYSTEM v1.0
+          </span>
+          <span className="text-xs" style={{ color: 'var(--c-label)' }}>
+            {time}
+          </span>
+        </div>
+
+        {/* Row 2 — Status / Nav / Actions */}
+        <div className="flex justify-between items-center py-1.5">
+          <span className="text-xs" style={{ color: 'var(--c-label)' }}>
+            Status:&nbsp;
+            <span className="glow" style={{ color: 'var(--c-primary)' }}>ONLINE</span>
+          </span>
+
+          {/* Desktop nav links */}
+          <div className="hidden md:flex items-center gap-8">
+            {[['HOME','#home'],['ABOUT','#about'],['PROJECTS','#projects']].map(([label, href]) => (
+              <a key={label} href={href} className="nav-link">[{label}]</a>
+            ))}
+          </div>
+
+          {/* Right actions */}
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="#contact"
+              className="term-btn-ghost"
+              style={{ padding: '3px 12px', fontSize: '0.72rem' }}
+            >
+              [CONTACT_ME]
+            </a>
+            <button
+              className="theme-btn"
+              onClick={() => setTheme(isDay ? 'night' : 'day')}
+              title={isDay ? 'Switch to Night mode' : 'Switch to Day mode'}
+            >
+              {isDay ? '☾ NGT' : '☀ DAY'}
+            </button>
+          </div>
+
+          {/* Mobile hamburger */}
+          <div
+            onClick={() => setMenuOpen((prev) => !prev)}
+            className="md:hidden cursor-pointer text-xl"
+            style={{ color: 'var(--c-primary)' }}
+          >
+            &#9776;
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  );
 };

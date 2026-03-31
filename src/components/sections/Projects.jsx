@@ -1,133 +1,157 @@
-import { RevealOnScroll } from "../RevealOnScroll";
+import { RevealOnScroll } from '../RevealOnScroll';
+
+const PROJECTS = [
+  {
+    id: '001',
+    name: 'REVIEWIT',
+    type: 'FULL-STACK WEB APPLICATION',
+    desc: 'A full-stack web application that allows users to review, rate, comment on, and discuss anything across flexible categories — including products, books, media, ideas, and experiences.',
+    stack: ['C#', '.NET', 'TYPESCRIPT', 'REACT', 'JWT', 'POSTGRESQL', 'TAILWIND', 'AWS', 'CI/CD'],
+    status: 'DEPLOYED',
+    link: 'https://github.com/Chao-777/ReviewIt',
+    linkLabel: 'GITHUB_REPO →',
+  },
+  {
+    id: '002',
+    name: 'EASYPARK',
+    type: 'PARKING MANAGEMENT SYSTEM',
+    desc: 'A parking access control system with slot management and guest token allocation for residential and commercial use.',
+    stack: ['JAVASCRIPT', 'TYPESCRIPT', 'EJS', 'MYSQL', 'NODE.JS', 'BOOTSTRAP', 'CI/CD'],
+    status: 'IN_DEVELOPMENT',
+    link: null,
+    linkLabel: null,
+  },
+  {
+    id: '003',
+    name: 'EDUCATION_MGMT_SYS',
+    type: 'WEB APPLICATION',
+    desc: 'Education management system with user registration, authentication, course management, and peer review assessments. Responsive UI built with Bootstrap.',
+    stack: ['PHP', 'LARAVEL', 'MYSQL', 'BOOTSTRAP', 'BLADE'],
+    status: 'DEPLOYED',
+    link: 'https://github.com/Chao-777/Hogwarts-education-system',
+    linkLabel: 'GITHUB_REPO →',
+  },
+  {
+    id: '004',
+    name: 'DRUG-SPEAK_APP',
+    type: 'MOBILE APPLICATION',
+    desc: 'Educational mobile app for pharmacy students to learn correct drug pronunciation. Features audio playback, speed control, voice recording, pronunciation evaluation, and student rankings.',
+    stack: ['JAVASCRIPT', 'REACT_NATIVE', 'AUDIO_PROCESSING', 'AUTHENTICATION', 'BACKEND_API'],
+    status: 'DEPLOYED',
+    link: 'https://github.com/Chao-777/Drug-Speak',
+    linkLabel: 'GITHUB_REPO →',
+  },
+];
 
 export const Projects = () => {
+  return (
+    <section id="projects" className="min-h-screen py-20">
+      <RevealOnScroll>
+        <div className="w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-16 xl:px-24">
 
-   return (
-      <section id="projects" className="min-h-screen flex item-center justify-center py-20">
-         <RevealOnScroll>
-            <div className="w-full mx-auto px-4 md:px-8 lg:px-16 xl:px-24">
-               <h2 className="text-3xl font-bold mb-3 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
-                  Featured Projects
-               </h2>
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-               <div className="rounded-xl p-6 border border-white/20 hover:-translate-y-1 
-                  hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all">         
-                     <h3 className="text-xl font-bold mb-2">
-                        ReviewIt
-                     </h3>
-                     <p className="text-gray-300 mb-4 text-left">
-                     A full-stack web application that allows users to review, rate, comment on, and discuss **anything** across flexible categories — including products, books, media, ideas, and experiences. The platform is designed to encourage open discussion, feedback, and community interaction.
-                     </p>
-                     <div className="flex flex-wrap text-left gap-2 mb-4">
-                        {["C#", ".NET", "TypeScript", "React","JWT", "PostgreSQL", "Tailwind", "AWS", "CI/CD"].map((tech,key) => (
-                           <span
-                              key={key}
-                              className="bg-blue-500/10 text-blue-500 px-3 py-1 rounded-full text-sm 
-                              hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition"
-                           >
-                              {tech}
-                           </span>
-                        ))}
-                     </div>
+          <div
+            className="text-xs mb-2"
+            style={{
+              color: 'var(--c-label)',
+              fontFamily: 'JetBrains Mono',
+              letterSpacing: '0.2em',
+            }}
+          >
+            &gt; PROJECT_LOG
+          </div>
+          <h2
+            className="text-2xl font-bold mb-8 glow"
+            style={{
+              color: 'var(--c-primary)',
+              fontFamily: 'JetBrains Mono',
+              letterSpacing: '0.1em',
+            }}
+          >
+            FEATURED_PROJECTS
+          </h2>
 
-                     <div className="justify-between items-center text-left mt-4">
-                        <a href="https://github.com/Chao-777/ReviewIt" className="text-blue-400 hover:text-blue-200 transition-colors my-4">
-                        View Project →
-                        </a>
-                     </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {PROJECTS.map((proj) => (
+              <div key={proj.id} className="term-panel p-6 project-card">
+
+                {/* Header */}
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <span
+                      className="text-xs mr-2"
+                      style={{ color: 'var(--c-faint)', fontFamily: 'JetBrains Mono' }}
+                    >
+                      [{proj.id}]
+                    </span>
+                    <span
+                      className="text-base font-bold glow"
+                      style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
+                    >
+                      {proj.name}
+                    </span>
                   </div>
+                  <span
+                    className="term-tag"
+                    style={{
+                      borderColor:
+                        proj.status === 'DEPLOYED' ? 'var(--c-mid)' : 'var(--c-border)',
+                      color:
+                        proj.status === 'DEPLOYED' ? 'var(--c-primary)' : 'var(--c-faint)',
+                    }}
+                  >
+                    {proj.status}
+                  </span>
+                </div>
 
-                  <div className="rounded-xl p-6 border border-white/20 hover:-translate-y-1 
-                  hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all">         
-                     <h3 className="text-xl font-bold mb-2">
-                        EasyPark
-                     </h3>
-                     <p className="text-gray-300 mb-4 text-left">
-                     A parking access control system with slot management
-                     and guest token allocation for residential and commercial use.
-                     </p>
-                     <div className="flex flex-wrap text-left gap-2 mb-4">
-                        {["JavaScript", "Typescript", "EJS", "MySql", "Node.js","Bootstrap", "CI/CD"].map((tech,key) => (
-                           <span
-                              key={key}
-                              className="bg-blue-500/10 text-blue-500 px-3 py-1 rounded-full text-sm 
-                              hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition"
-                           >
-                              {tech}
-                           </span>
-                        ))}
-                     </div>
+                <div
+                  className="text-xs mb-3"
+                  style={{
+                    color: 'var(--c-faint)',
+                    fontFamily: 'JetBrains Mono',
+                    letterSpacing: '0.08em',
+                  }}
+                >
+                  TYPE: {proj.type}
+                </div>
 
-                     <div className="justify-between items-center text-left mt-4">
-                        <a href="#" className="text-blue-400 hover:text-blue-200 transition-colors my-4">
-                           In Developing... 
-                        </a>
-                     </div>
-                  </div>
+                <hr className="term-divider mb-3" />
 
-                  <div className="rounded-xl p-6 border border-white/20 hover:-translate-y-1 
-                  hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all">         
-                     <h3 className="text-xl font-bold mb-2">
-                        Education Management System
-                     </h3>
-                     <p className="text-gray-300 mb-4 text-left">
-                     An education management system using PHP and Laravel, implementing
-                     features such as user registration, authentication, course management, and peer
-                     review assessments, with a responsive UI built using Bootstrap for a seamless user
-                     experience.
-                     </p>
-                     <div className="flex flex-wrap text-left gap-2 mb-4">
-                        {["PHP", "Laravel", "MySQL", "Bootstrap", "Blade"].map((tech,key) => (
-                           <span
-                              key={key}
-                              className="bg-blue-500/10 text-blue-500 px-3 py-1 rounded-full text-sm 
-                              hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition"
-                           >
-                              {tech}
-                           </span>
-                        ))}
-                     </div>
+                <p
+                  className="text-xs mb-4 leading-relaxed"
+                  style={{ color: 'var(--c-body)', fontFamily: 'JetBrains Mono' }}
+                >
+                  {proj.desc}
+                </p>
 
-                     <div className="justify-between items-center text-left mt-4">
-                        <a href="https://github.com/Chao-777/Hogwarts-education-system" className="text-blue-400 hover:text-blue-200 transition-colors my-4">
-                           View Project →
-                        </a>
-                     </div>
-                  </div>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {proj.stack.map((t) => (
+                    <span key={t} className="term-tag">{t}</span>
+                  ))}
+                </div>
 
-                  <div className="rounded-xl p-6 border border-white/20 hover:-translate-y-1 
-                  hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all">         
-                     <h3 className="text-xl font-bold mb-2">
-                        Drug-Speak Learning App
-                     </h3>
-                     <p className="text-gray-300 mb-4 text-left">
-                     An educational mobile application designed to help pharmacy students learn correct 
-                     drug pronunciation. Features audio playback with male/female speakers, speed control, 
-                     voice recording, pronunciation evaluation, and student ranking system with backend integration.
-                     </p>
-                     <div className="flex flex-wrap text-left gap-2 mb-4">
-                        {["JavaScript", "React Native", "Audio Processing", "Authentication", "Backend API"].map((tech,key) => (
-                           <span
-                              key={key}
-                              className="bg-blue-500/10 text-blue-500 px-3 py-1 rounded-full text-sm 
-                              hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition"
-                           >
-                              {tech}
-                           </span>
-                        ))}
-                     </div>
+                {proj.link ? (
+                  <a
+                    href={proj.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    {proj.linkLabel}
+                  </a>
+                ) : (
+                  <span
+                    className="text-xs"
+                    style={{ color: 'var(--c-faint)', fontFamily: 'JetBrains Mono' }}
+                  >
+                    → IN_DEVELOPMENT...
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
 
-                     <div className="justify-between items-center text-left mt-4">
-                        <a href="https://github.com/Chao-777/Drug-Speak" className="text-blue-400 hover:text-blue-200 transition-colors my-4">
-                           View Project →
-                        </a>
-                     </div>
-                  </div>
-
-               </div>
-            </div>
-         </RevealOnScroll>
-      </section>
-   );
-
-}
+        </div>
+      </RevealOnScroll>
+    </section>
+  );
+};

@@ -1,36 +1,90 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+
+const BOOT_LINES = [
+  '> CHAO_PORTFOLIO_SYSTEM v1.0',
+  '> INITIALIZING...',
+  '> LOADING USER_PROFILE: CHAO_YUAN.............. OK',
+  '> VERIFYING AWS_CREDENTIALS.................... OK',
+  '> MOUNTING PROJECT_DATABASE.................... OK',
+  '> ESTABLISHING CONTACT_RELAY................... OK',
+  '> ALL SYSTEMS NOMINAL',
+];
 
 export const LoadingScreen = ({ onComplete }) => {
-   const [text, setText] = useState("");
-   const fullText = "Welcome to my portfolio!";
+  const [lines, setLines] = useState([]);
+  const [progress, setProgress] = useState(0);
 
-   useEffect(() => {
-         let index = 0;
-         const interval = setInterval(() => {
-            setText(fullText.substring(0, index));
-            index++;
+  useEffect(() => {
+    let idx = 0;
+    const id = setInterval(() => {
+      if (idx < BOOT_LINES.length) {
+        setLines((prev) => [...prev, BOOT_LINES[idx]]);
+        idx++;
+        setProgress(Math.round((idx / BOOT_LINES.length) * 100));
+      } else {
+        clearInterval(id);
+        setTimeout(() => { if (onComplete) onComplete(); }, 700);
+      }
+    }, 280);
+    return () => clearInterval(id);
+  }, [onComplete]);
 
-            if (index > fullText.length) {
-               clearInterval(interval);
-               setTimeout(() => {
-                  if (onComplete) onComplete(); 
-               }, 1000);
-            }
-         }, 100);
+  return (
+    <div
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center"
+      style={{ background: 'var(--c-bg)' }}
+    >
+      <div className="w-full max-w-lg px-8">
+        <div
+          className="text-xs mb-6"
+          style={{
+            color: 'var(--c-label)',
+            fontFamily: 'JetBrains Mono',
+            letterSpacing: '0.2em',
+          }}
+        >
+          PORTFOLIO_SYSTEM — BOOT_SEQUENCE
+        </div>
 
-         return () => clearInterval(interval);
-   }, [onComplete]);
-
-   return (
-         <div className="fixed inset-0 z-50 bg-black text-gray-100 flex flex-col items-center justify-center">
-            <div className="mb-4 text-4xl font-mono font-bold">
-               {text}
-               <span className="animate-blink ml-1">|</span>
+        <div className="space-y-1 mb-2">
+          {lines.map((line, i) => (
+            <div
+              key={i}
+              className="text-sm"
+              style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
+            >
+              {line}
             </div>
+          ))}
+        </div>
 
-            <div className="w-[200px] h-[2px] bg-gray-800 rounded relative overflow-hidden">
-               <div className="w-[40%] h-full bg-blue-500 shadow-[0_0_15px_#3b82f6] animate-loading-bar"></div>
-            </div>
+        <span
+          className="animate-blink text-sm"
+          style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
+        >
+          _
+        </span>
+
+        {/* Progress bar */}
+        <div className="mt-6 flex items-center gap-3">
+          <div className="flex-1 term-progress-bg" style={{ height: '14px' }}>
+            <div
+              className="term-progress-fill"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <span
+            className="text-xs"
+            style={{
+              color: 'var(--c-primary)',
+              fontFamily: 'JetBrains Mono',
+              minWidth: '42px',
+            }}
+          >
+            {progress}%
+          </span>
+        </div>
       </div>
-   );
+    </div>
+  );
 };
