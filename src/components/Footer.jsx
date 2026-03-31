@@ -1,39 +1,41 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export const Footer = () => {
-   return (
-      <footer className="w-full bg-[rgba(10,10,10,0.8)] backdrop-blur-lg border-t border-white/20 py-6 mt-10">
-         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center">
-               {/* Footer Content */}
-               <div className="text-gray-300">
-                  <p className="text-sm">
-                     &copy; {new Date().getFullYear()} Chao Yuan
-                  </p>
-               </div>
-
-               {/* Social Links */}
-               <div className="flex space-x-6">
-                  <a
-                     href="https://github.com/Chao-777"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="text-gray-300 hover:text-blue-500 transition-colors"
-                  >
-                     <FaGithub size={24} />
-                  </a>
-                  <a
-                     href="https://www.linkedin.com/in/chao-yuan-nic777/"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="text-gray-300 hover:text-blue-500 transition-colors"
-                  >
-                     <FaLinkedin size={24} />
-                  </a>
-               </div>
-            </div>
-         </div>
-      </footer>
-   );
+  return (
+    <footer
+      className="w-full py-4"
+      style={{
+        borderTop: '1px solid var(--c-border)',
+        background: 'var(--c-nav-bg)',
+        fontFamily: 'JetBrains Mono',
+        transition: 'background 0.4s ease, border-color 0.4s ease',
+      }}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          <p className="text-xs" style={{ color: 'var(--c-label)' }}>
+            © {new Date().getFullYear()} CHAO_YUAN &nbsp;|&nbsp; ALL_RIGHTS_RESERVED
+          </p>
+          <div className="flex gap-5">
+            <a
+              href="https://github.com/Chao-777"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              <FaGithub size={20} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/chao-yuan-nic777/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              <FaLinkedin size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 };
