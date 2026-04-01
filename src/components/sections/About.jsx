@@ -124,92 +124,105 @@ export const About = () => {
           </div>
         </div>
 
-        {/* Education + Experience */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {/* Education */}
+        <div className="term-panel p-6 mb-5">
+          <SectionLabel>EDUCATION</SectionLabel>
+          <div className="flex flex-wrap justify-between items-start gap-4 mb-3">
+            <div>
+              <div
+                className="text-base font-bold"
+                style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
+              >
+                GRIFFITH_UNIVERSITY
+              </div>
+              <div
+                className="text-xs mt-1"
+                style={{ color: 'var(--c-mid)', fontFamily: 'JetBrains Mono' }}
+              >
+                Master of IT — Software Development
+              </div>
+            </div>
+            <div className="flex flex-col items-end gap-1">
+              <span className="term-tag" style={{ fontSize: '0.75rem', padding: '3px 10px' }}>
+                2023 — 2025
+              </span>
+              <span
+                className="text-xs"
+                style={{ color: 'var(--c-label)', fontFamily: 'JetBrains Mono' }}
+              >
+                GPA: 6.4 / 7.0 &nbsp;|&nbsp; ★ Academic Excellence Award
+              </span>
+            </div>
+          </div>
+          <hr className="term-divider mb-3" />
+          <div
+            className="text-xs mb-2"
+            style={{ color: 'var(--c-label)', fontFamily: 'JetBrains Mono' }}
+          >
+            RELEVANT_COURSES:
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {COURSES.map((c) => (
+              <span key={c} className="term-tag">{c}</span>
+            ))}
+          </div>
+        </div>
 
-          <div className="term-panel p-6">
-            <SectionLabel>EDUCATION</SectionLabel>
-            <div
-              className="text-sm font-bold mb-1"
-              style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
-            >
-              GRIFFITH_UNIVERSITY
+        {/* Experience — full width, prominent */}
+        <div
+          className="term-panel p-6 mb-5"
+          style={{ borderLeft: '3px solid var(--c-primary)' }}
+        >
+          <SectionLabel>WORK_EXPERIENCE</SectionLabel>
+
+          {/* Header row */}
+          <div className="flex flex-wrap justify-between items-start gap-4 mb-5">
+            <div>
+              <div
+                className="text-xl font-bold glow mb-1"
+                style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
+              >
+                APYAPP
+              </div>
+              <div
+                className="text-sm"
+                style={{ color: 'var(--c-mid)', fontFamily: 'JetBrains Mono' }}
+              >
+                Software Developer — Internship &nbsp;|&nbsp; Sydney (Remote)
+              </div>
             </div>
-            <div
-              className="text-xs mb-1"
-              style={{ color: 'var(--c-mid)', fontFamily: 'JetBrains Mono' }}
+            <span
+              className="term-tag"
+              style={{
+                fontSize: '0.8rem',
+                padding: '5px 14px',
+                borderColor: 'var(--c-primary)',
+                color: 'var(--c-primary)',
+              }}
             >
-              Master of IT — Software Development &nbsp;|&nbsp; 2023–2025
-            </div>
-            <div
-              className="text-xs mb-1"
-              style={{ color: 'var(--c-label)', fontFamily: 'JetBrains Mono' }}
-            >
-              GPA: 6.4 / 7.0
-            </div>
-            <div
-              className="text-xs mb-4"
-              style={{ color: 'var(--c-label)', fontFamily: 'JetBrains Mono' }}
-            >
-              ★ Griffith Award for Academic Excellence (2024)
-            </div>
-            <hr className="term-divider mb-4" />
-            <div
-              className="text-xs mb-2"
-              style={{ color: 'var(--c-label)', fontFamily: 'JetBrains Mono' }}
-            >
-              RELEVANT_COURSES:
-            </div>
-            <ul className="space-y-1.5">
-              {COURSES.map((c) => (
-                <li
-                  key={c}
-                  className="text-xs"
-                  style={{ color: 'var(--c-body)', fontFamily: 'JetBrains Mono' }}
-                >
-                  &gt; {c}
-                </li>
-              ))}
-            </ul>
+              MAR 2025 — JUL 2025
+            </span>
           </div>
 
-          <div className="term-panel p-6">
-            <SectionLabel>EXPERIENCE</SectionLabel>
-            <div
-              className="text-sm font-bold mb-1"
-              style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
-            >
-              APYAPP
-            </div>
-            <div
-              className="text-xs mb-1"
-              style={{ color: 'var(--c-mid)', fontFamily: 'JetBrains Mono' }}
-            >
-              SOFTWARE_DEVELOPER_INTERN
-            </div>
-            <div
-              className="text-xs mb-4"
-              style={{ color: 'var(--c-label)', fontFamily: 'JetBrains Mono' }}
-            >
-              MAR_2025 — JUL_2025
-            </div>
-            <hr className="term-divider mb-4" />
-            <ul className="space-y-2.5">
-              {EXPERIENCE.map((item, i) => (
-                <li
-                  key={i}
-                  className="text-xs"
-                  style={{
-                    color: 'var(--c-body)',
-                    fontFamily: 'JetBrains Mono',
-                    lineHeight: '1.65',
-                  }}
-                >
-                  &gt; {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <hr className="term-divider mb-5" />
+
+          {/* Bullet points — larger text */}
+          <ul className="space-y-4">
+            {EXPERIENCE.map((item, i) => (
+              <li
+                key={i}
+                className="flex gap-3 text-sm"
+                style={{
+                  color: 'var(--c-body)',
+                  fontFamily: 'JetBrains Mono',
+                  lineHeight: '1.75',
+                }}
+              >
+                <span style={{ color: 'var(--c-primary)', flexShrink: 0 }}>&gt;</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
       </div>
