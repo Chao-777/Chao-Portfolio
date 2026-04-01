@@ -4,24 +4,6 @@
 
 **Live:** https://chao-777.github.io/Chao-Portfolio/
 
----
-
-## Screenshots
-
-### Night Mode — Amber Phosphor CRT
-![Night Mode Hero](docs/screenshot-night-hero.png)
-
-### Day Mode — Navy Ink on Parchment
-![Day Mode Hero](docs/screenshot-day-hero.png)
-
-### About & Experience
-![About Section](docs/screenshot-about.png)
-
-### Projects
-![Projects Section](docs/screenshot-projects.png)
-
----
-
 ## Features
 
 - **Dual theme** — toggle between amber-on-black (night) and navy-on-parchment (day) with a smooth transition
