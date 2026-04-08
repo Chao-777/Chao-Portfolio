@@ -35,23 +35,28 @@ export const LoadingScreen = ({ onComplete }) => {
       style={{ background: 'var(--c-bg)' }}
     >
       <div className="w-full max-w-lg px-8">
+        {/* Label */}
         <div
           className="text-xs mb-6"
           style={{
-            color: 'var(--c-label)',
-            fontFamily: 'JetBrains Mono',
+            color: 'var(--c-primary)',
+            fontFamily: 'JetBrains Mono, monospace',
             letterSpacing: '0.2em',
           }}
         >
           PORTFOLIO_SYSTEM — BOOT_SEQUENCE
         </div>
 
+        {/* Lines */}
         <div className="space-y-1 mb-2">
           {lines.map((line, i) => (
             <div
               key={i}
               className="text-sm"
-              style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
+              style={{
+                color: i === lines.length - 1 ? 'var(--c-heading)' : 'var(--c-body)',
+                fontFamily: 'JetBrains Mono, monospace',
+              }}
             >
               {line}
             </div>
@@ -60,14 +65,14 @@ export const LoadingScreen = ({ onComplete }) => {
 
         <span
           className="animate-blink text-sm"
-          style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
+          style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono, monospace' }}
         >
           _
         </span>
 
         {/* Progress bar */}
-        <div className="mt-6 flex items-center gap-3">
-          <div className="flex-1 term-progress-bg" style={{ height: '14px' }}>
+        <div className="mt-8 flex items-center gap-4">
+          <div className="flex-1 term-progress-bg" style={{ height: '4px' }}>
             <div
               className="term-progress-fill"
               style={{ width: `${progress}%` }}
@@ -77,7 +82,7 @@ export const LoadingScreen = ({ onComplete }) => {
             className="text-xs"
             style={{
               color: 'var(--c-primary)',
-              fontFamily: 'JetBrains Mono',
+              fontFamily: 'JetBrains Mono, monospace',
               minWidth: '42px',
             }}
           >

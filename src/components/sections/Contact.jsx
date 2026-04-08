@@ -4,11 +4,13 @@ import emailjs from 'emailjs-com';
 
 const FieldLabel = ({ children }) => (
   <label
-    className="block text-xs mb-1.5"
     style={{
-      color: 'var(--c-label)',
-      fontFamily: 'JetBrains Mono',
+      display: 'block',
+      color: 'var(--c-faint)',
+      fontFamily: 'JetBrains Mono, monospace',
+      fontSize: '0.68rem',
       letterSpacing: '0.12em',
+      marginBottom: '0.5rem',
     }}
   >
     {children}
@@ -17,7 +19,6 @@ const FieldLabel = ({ children }) => (
 
 export const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
@@ -57,98 +58,110 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 flex flex-col justify-center items-center">
+    <section id="contact" style={{ padding: '4rem 3rem 4rem' }}>
       <RevealOnScroll>
-        <div className="w-full max-w-3xl px-4 md:px-8">
 
-          <div
-            className="text-xs mb-2"
-            style={{
-              color: 'var(--c-label)',
-              fontFamily: 'JetBrains Mono',
-              letterSpacing: '0.2em',
-            }}
-          >
-            &gt; ESTABLISH_CONNECTION
-          </div>
-          <h2
-            className="text-2xl font-bold mb-8 glow"
-            style={{
-              color: 'var(--c-primary)',
-              fontFamily: 'JetBrains Mono',
-              letterSpacing: '0.1em',
-            }}
-          >
-            CONTACT_ME
-          </h2>
+        {/* Section header */}
+        <div
+          style={{
+            color: 'var(--c-primary)',
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '0.68rem',
+            letterSpacing: '0.2em',
+            marginBottom: '0.5rem',
+          }}
+        >
+          &gt; ESTABLISH_CONNECTION
+        </div>
+        <h2
+          className="section-heading"
+          style={{ marginBottom: '2.5rem' }}
+        >
+          CONTACT_ME
+        </h2>
 
-          <div className="term-panel p-8">
-            <form onSubmit={handleSubmit} className="space-y-5">
+        <div
+          style={{
+            background: 'var(--c-panel)',
+            border: '1px solid var(--c-border)',
+            borderRadius: '4px',
+            padding: '2rem',
+          }}
+        >
+          <form onSubmit={handleSubmit}>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div>
-                  <FieldLabel>SENDER_ID:</FieldLabel>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    placeholder="your name..."
-                    required
-                    className="term-input"
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  />
-                </div>
-                <div>
-                  <FieldLabel>CHANNEL:</FieldLabel>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    placeholder="your email..."
-                    required
-                    className="term-input"
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  />
-                </div>
-              </div>
-
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+                gap: '1.25rem',
+                marginBottom: '1.25rem',
+              }}
+            >
               <div>
-                <FieldLabel>MESSAGE:</FieldLabel>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  rows={6}
-                  placeholder="your message..."
+                <FieldLabel>SENDER_ID:</FieldLabel>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  placeholder="your name..."
                   required
                   className="term-input"
-                  style={{ resize: 'vertical' }}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
               </div>
+              <div>
+                <FieldLabel>CHANNEL:</FieldLabel>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  placeholder="your email..."
+                  required
+                  className="term-input"
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                />
+              </div>
+            </div>
 
-              {error && (
-                <div
-                  className="text-xs"
-                  style={{
-                    color: 'var(--c-primary)',
-                    fontFamily: 'JetBrains Mono',
-                    border: '1px solid var(--c-border)',
-                    padding: '8px 12px',
-                    background: 'var(--c-panel)',
-                  }}
-                >
-                  ! {error}
-                </div>
-              )}
+            <div style={{ marginBottom: '1.25rem' }}>
+              <FieldLabel>MESSAGE:</FieldLabel>
+              <textarea
+                name="message"
+                value={formData.message}
+                rows={6}
+                placeholder="your message..."
+                required
+                className="term-input"
+                style={{ resize: 'vertical' }}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              />
+            </div>
 
-              <button type="submit" className="term-btn w-full">
-                ▶ TRANSMIT_MESSAGE
-              </button>
+            {error && (
+              <div
+                style={{
+                  color: 'var(--c-primary)',
+                  fontFamily: 'JetBrains Mono, monospace',
+                  fontSize: '0.75rem',
+                  border: '1px solid var(--c-border)',
+                  borderRadius: '4px',
+                  padding: '10px 14px',
+                  background: 'var(--c-highlight)',
+                  marginBottom: '1.25rem',
+                }}
+              >
+                ! {error}
+              </div>
+            )}
 
-            </form>
-          </div>
+            <button type="submit" className="term-btn" style={{ width: '100%' }}>
+              ▶ TRANSMIT_MESSAGE
+            </button>
 
+          </form>
         </div>
+
       </RevealOnScroll>
     </section>
   );

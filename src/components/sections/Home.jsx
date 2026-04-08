@@ -27,157 +27,165 @@ export const Home = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex justify-center items-center relative"
-      style={{ padding: '5rem 0' }}
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        padding: '5rem 3rem 4rem',
+      }}
     >
-      <div className="w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-16 xl:px-24">
+      <div style={{ width: '100%', maxWidth: '680px' }}>
 
-        {/* Prompt header */}
+        {/* ── Mobile-only name (hidden on desktop where sidebar shows it) */}
+        <div className="lg:hidden" style={{ marginBottom: '2.5rem' }}>
+          <h1
+            style={{
+              color: 'var(--c-heading)',
+              fontSize: '2.5rem',
+              fontWeight: 700,
+              fontFamily: 'Inter, sans-serif',
+              lineHeight: 1.05,
+              marginBottom: '0.5rem',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            CHAO YUAN
+          </h1>
+          <p style={{ color: 'var(--c-mid)', fontSize: '1rem', fontFamily: 'Inter, sans-serif', fontWeight: 500 }}>
+            Software Developer
+          </p>
+        </div>
+
+        {/* ── Prompt header */}
         <div
-          className="text-xs mb-6"
           style={{
-            color: 'var(--c-label)',
-            fontFamily: 'JetBrains Mono',
+            color: 'var(--c-primary)',
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '0.72rem',
             letterSpacing: '0.15em',
+            marginBottom: '2rem',
           }}
         >
           &gt; SYSTEM_BOOT_COMPLETE &nbsp;&nbsp;&nbsp; STATUS: NOMINAL
         </div>
 
-        <hr className="term-divider mb-8" />
-
-        {/* Identity panel — 3 cols: [text 2/3] [photo 1/3] */}
-        <div className="term-panel p-6 md:p-8 mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            {/* Left 2/3 — name + fields + system log */}
-            <div className="md:col-span-2 flex flex-col justify-between">
-
-              <div>
-                <div
-                  className="text-xs mb-4"
-                  style={{
-                    color: 'var(--c-label)',
-                    fontFamily: 'JetBrains Mono',
-                    letterSpacing: '0.2em',
-                  }}
-                >
-                  USER_PROFILE
-                </div>
-
-                {/* Name */}
-                <h1
-                  className="text-4xl md:text-5xl font-bold mb-6 glow"
-                  style={{
-                    color: 'var(--c-primary)',
-                    fontFamily: 'JetBrains Mono',
-                    letterSpacing: '0.04em',
-                  }}
-                >
-                  CHAO YUAN
-                </h1>
-
-                {/* Fields */}
-                <div
-                  className="text-sm space-y-2 mb-6"
-                  style={{ fontFamily: 'JetBrains Mono' }}
-                >
-                  {[
-                    ['ROLE_____', 'SOFTWARE_DEVELOPER'],
-                    ['CERTS____', 'AWS_SAA / AWS_CCP'],
-                    ['STATUS___', 'AVAILABLE_FOR_HIRE'],
-                    ['LOCATION_', 'BRISBANE, QLD'],
-                  ].map(([label, value]) => (
-                    <div key={label}>
-                      <span style={{ color: 'var(--c-label)' }}>{label}: </span>
-                      <span
-                        className={label === 'STATUS___' ? 'glow' : ''}
-                        style={{ color: 'var(--c-primary)' }}
-                      >
-                        {value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* System log */}
-              <div>
-                <div
-                  className="text-xs mb-3"
-                  style={{
-                    color: 'var(--c-label)',
-                    fontFamily: 'JetBrains Mono',
-                    letterSpacing: '0.2em',
-                  }}
-                >
-                  SYSTEM_LOG
-                </div>
-                <div className="space-y-1">
-                  {visibleLines.map((line, i) => (
-                    <div
-                      key={i}
-                      className="text-sm"
-                      style={{
-                        color: 'var(--c-body)',
-                        fontFamily: 'JetBrains Mono',
-                        lineHeight: '1.8',
-                      }}
-                    >
-                      {line}
-                    </div>
-                  ))}
-                  {visibleLines.length > 0 && (
-                    <span
-                      className="animate-blink text-sm"
-                      style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
-                    >
-                      _
-                    </span>
-                  )}
-                </div>
-              </div>
+        {/* ── Identity fields + photo */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr auto',
+            gap: '2.5rem',
+            alignItems: 'start',
+            marginBottom: '2.5rem',
+          }}
+        >
+          {/* Left: fields */}
+          <div>
+            <div
+              style={{
+                color: 'var(--c-primary)',
+                fontFamily: 'JetBrains Mono, monospace',
+                fontSize: '0.68rem',
+                letterSpacing: '0.2em',
+                marginBottom: '1rem',
+              }}
+            >
+              USER_PROFILE
             </div>
 
-            {/* Right 1/3 — big profile photo */}
-            <div className="flex flex-col">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '2rem' }}>
+              {[
+                ['ROLE_____', 'SOFTWARE_DEVELOPER'],
+                ['CERTS____', 'AWS_SAA / AWS_CCP'],
+                ['STATUS___', 'AVAILABLE_FOR_HIRE'],
+                ['LOCATION_', 'BRISBANE, QLD'],
+              ].map(([label, value]) => (
+                <div
+                  key={label}
+                  style={{
+                    fontFamily: 'JetBrains Mono, monospace',
+                    fontSize: '0.82rem',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  <span style={{ color: 'var(--c-faint)' }}>{label}: </span>
+                  <span
+                    style={{
+                      color: label === 'STATUS___' ? 'var(--c-primary)' : 'var(--c-heading)',
+                    }}
+                  >
+                    {value}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* System log */}
+            <div>
               <div
-                className="text-xs mb-3"
                 style={{
-                  color: 'var(--c-label)',
-                  fontFamily: 'JetBrains Mono',
+                  color: 'var(--c-primary)',
+                  fontFamily: 'JetBrains Mono, monospace',
+                  fontSize: '0.68rem',
                   letterSpacing: '0.2em',
+                  marginBottom: '0.75rem',
                 }}
               >
-                VISUAL_ID
+                SYSTEM_LOG
               </div>
-              <div
-                className="flex-1"
-                style={{
-                  border: '1px solid var(--c-primary)',
-                  overflow: 'hidden',
-                  minHeight: '260px',
-                }}
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}profile.jpg`}
-                  alt="CHAO_YUAN"
-                  className="profile-img"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
-                  onError={(e) => {
-                    e.currentTarget.parentElement.style.display = 'none';
-                  }}
-                />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                {visibleLines.map((line, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      color: 'var(--c-body)',
+                      fontFamily: 'JetBrains Mono, monospace',
+                      fontSize: '0.78rem',
+                      lineHeight: 1.8,
+                    }}
+                  >
+                    {line}
+                  </div>
+                ))}
+                {visibleLines.length > 0 && (
+                  <span
+                    className="animate-blink"
+                    style={{
+                      color: 'var(--c-primary)',
+                      fontFamily: 'JetBrains Mono, monospace',
+                      fontSize: '0.85rem',
+                    }}
+                  >
+                    _
+                  </span>
+                )}
               </div>
             </div>
+          </div>
 
+          {/* Right: profile photo with teal frame */}
+          <div className="photo-container" style={{ flexShrink: 0, width: '160px' }}>
+            <div className="photo-offset-frame" />
+            <div className="photo-inner">
+              <img
+                src={`${import.meta.env.BASE_URL}profile.jpg`}
+                alt="CHAO_YUAN"
+                className="profile-img"
+                style={{ width: '160px', height: '200px' }}
+                onError={(e) => {
+                  e.currentTarget.parentElement.parentElement.style.display = 'none';
+                }}
+              />
+              <div className="photo-teal-overlay" />
+            </div>
           </div>
         </div>
 
-        <hr className="term-divider mb-8" />
+        {/* ── Divider */}
+        <hr className="term-divider" style={{ marginBottom: '2rem' }} />
 
-        {/* CTA buttons */}
-        <div className="flex flex-wrap gap-4">
+        {/* ── CTA buttons */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
           <a href="#projects" className="term-btn">▶ VIEW_PROJECTS</a>
           <a href="#about" className="term-btn-ghost">▶ ABOUT_SYS</a>
           <a

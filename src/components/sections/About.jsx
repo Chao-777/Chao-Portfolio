@@ -30,202 +30,225 @@ const EXPERIENCE = [
   'Collaborated using Git version control and Agile methodology',
 ];
 
-const SectionLabel = ({ children }) => (
-  <div
-    className="text-xs mb-4"
-    style={{
-      color: 'var(--c-label)',
-      fontFamily: 'JetBrains Mono',
-      letterSpacing: '0.2em',
-    }}
-  >
-    {children}
-  </div>
-);
+const cardStyle = {
+  background: 'var(--c-panel)',
+  border: '1px solid var(--c-border)',
+  borderRadius: '4px',
+  padding: '1.5rem',
+  marginBottom: '1.25rem',
+  transition: 'border-color 0.2s, box-shadow 0.2s',
+};
+
+const sectionLabelStyle = {
+  color: 'var(--c-primary)',
+  fontFamily: 'JetBrains Mono, monospace',
+  fontSize: '0.68rem',
+  letterSpacing: '0.2em',
+  marginBottom: '1rem',
+};
 
 export const About = () => {
   return (
-    <section id="about" className="min-h-screen py-20">
-      <div className="w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-16 xl:px-24">
+    <section id="about" style={{ padding: '4rem 3rem 4rem' }}>
 
-        <div
-          className="text-xs mb-2"
+      {/* Section header */}
+      <div style={{ ...sectionLabelStyle, marginBottom: '0.5rem' }}>
+        &gt; SYSTEM_STATUS
+      </div>
+      <h2
+        className="section-heading"
+        style={{ marginBottom: '2.5rem' }}
+      >
+        ABOUT_SYS
+      </h2>
+
+      {/* Intro */}
+      <div style={{ ...cardStyle }}>
+        <p
           style={{
-            color: 'var(--c-label)',
-            fontFamily: 'JetBrains Mono',
-            letterSpacing: '0.2em',
+            color: 'var(--c-body)',
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '0.9rem',
+            lineHeight: 1.85,
+            margin: 0,
           }}
         >
-          &gt; SYSTEM_STATUS
-        </div>
-        <h2
-          className="text-2xl font-bold mb-8 glow"
-          style={{
-            color: 'var(--c-primary)',
-            fontFamily: 'JetBrains Mono',
-            letterSpacing: '0.1em',
-          }}
-        >
-          ABOUT_SYS
-        </h2>
+          &gt; Passionate software developer with a strong foundation in programming languages
+          and frameworks. Focused on solving complex problems and continuously learning new
+          technologies to build robust, scalable systems.
+        </p>
+      </div>
 
-        {/* Intro */}
-        <div className="term-panel p-6 mb-5">
-          <p
-            className="text-sm"
-            style={{
-              color: 'var(--c-body)',
-              fontFamily: 'JetBrains Mono',
-              lineHeight: '1.85',
-            }}
-          >
-            &gt; Passionate software developer with a strong foundation in programming languages
-            and frameworks. Focused on solving complex problems and continuously learning new
-            technologies to build robust, scalable systems.
-          </p>
-        </div>
-
-        {/* Skills */}
-        <div className="term-panel p-6 mb-5">
-          <SectionLabel>MODULE_STATUS</SectionLabel>
-          <div className="space-y-4">
-            {Object.entries(SKILLS).map(([cat, items]) => (
-              <div key={cat} className="flex flex-wrap items-start gap-x-6 gap-y-2">
-                <span
-                  className="text-xs shrink-0 mt-0.5"
-                  style={{
-                    color: 'var(--c-label)',
-                    fontFamily: 'JetBrains Mono',
-                    width: '110px',
-                  }}
-                >
-                  {cat}:
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {items.map((item) => (
-                    <span key={item} className="term-tag">[{item}]</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Certifications */}
-        <div className="term-panel p-6 mb-5">
-          <SectionLabel>CERTIFICATIONS</SectionLabel>
-          <div className="space-y-2">
-            {CERTS.map((cert) => (
-              <div key={cert} className="cert-badge">
-                <span className="glow">★</span>
-                <span>{cert}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Education */}
-        <div className="term-panel p-6 mb-5">
-          <SectionLabel>EDUCATION</SectionLabel>
-          <div className="flex flex-wrap justify-between items-start gap-4 mb-3">
-            <div>
-              <div
-                className="text-base font-bold"
-                style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
-              >
-                GRIFFITH_UNIVERSITY
-              </div>
-              <div
-                className="text-xs mt-1"
-                style={{ color: 'var(--c-mid)', fontFamily: 'JetBrains Mono' }}
-              >
-                Master of IT — Software Development
-              </div>
-            </div>
-            <div className="flex flex-col items-end gap-1">
-              <span className="term-tag" style={{ fontSize: '0.75rem', padding: '3px 10px' }}>
-                2023 — 2025
-              </span>
+      {/* Skills */}
+      <div style={{ ...cardStyle }}>
+        <div style={sectionLabelStyle}>MODULE_STATUS</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {Object.entries(SKILLS).map(([cat, items]) => (
+            <div key={cat} style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: '0 1.5rem' }}>
               <span
-                className="text-xs"
-                style={{ color: 'var(--c-label)', fontFamily: 'JetBrains Mono' }}
-              >
-                GPA: 6.4 / 7.0 &nbsp;|&nbsp; ★ Academic Excellence Award
-              </span>
-            </div>
-          </div>
-          <hr className="term-divider mb-3" />
-          <div
-            className="text-xs mb-2"
-            style={{ color: 'var(--c-label)', fontFamily: 'JetBrains Mono' }}
-          >
-            RELEVANT_COURSES:
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {COURSES.map((c) => (
-              <span key={c} className="term-tag">{c}</span>
-            ))}
-          </div>
-        </div>
-
-        {/* Experience — full width, prominent */}
-        <div
-          className="term-panel p-6 mb-5"
-          style={{ borderLeft: '3px solid var(--c-primary)' }}
-        >
-          <SectionLabel>WORK_EXPERIENCE</SectionLabel>
-
-          {/* Header row */}
-          <div className="flex flex-wrap justify-between items-start gap-4 mb-5">
-            <div>
-              <div
-                className="text-xl font-bold glow mb-1"
-                style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
-              >
-                APYAPP
-              </div>
-              <div
-                className="text-sm"
-                style={{ color: 'var(--c-mid)', fontFamily: 'JetBrains Mono' }}
-              >
-                Software Developer — Internship &nbsp;|&nbsp; Sydney (Remote)
-              </div>
-            </div>
-            <span
-              className="term-tag"
-              style={{
-                fontSize: '0.8rem',
-                padding: '5px 14px',
-                borderColor: 'var(--c-primary)',
-                color: 'var(--c-primary)',
-              }}
-            >
-              MAR 2025 — JUL 2025
-            </span>
-          </div>
-
-          <hr className="term-divider mb-5" />
-
-          {/* Bullet points — larger text */}
-          <ul className="space-y-4">
-            {EXPERIENCE.map((item, i) => (
-              <li
-                key={i}
-                className="flex gap-3 text-sm"
                 style={{
-                  color: 'var(--c-body)',
-                  fontFamily: 'JetBrains Mono',
-                  lineHeight: '1.75',
+                  color: 'var(--c-faint)',
+                  fontFamily: 'JetBrains Mono, monospace',
+                  fontSize: '0.68rem',
+                  letterSpacing: '0.08em',
+                  flexShrink: 0,
+                  width: '100px',
+                  paddingTop: '4px',
                 }}
               >
-                <span style={{ color: 'var(--c-primary)', flexShrink: 0 }}>&gt;</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+                {cat}:
+              </span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', flex: 1 }}>
+                {items.map((item) => (
+                  <span key={item} className="term-tag">[{item}]</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Certifications */}
+      <div style={{ ...cardStyle }}>
+        <div style={sectionLabelStyle}>CERTIFICATIONS</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          {CERTS.map((cert) => (
+            <div key={cert} className="cert-badge">
+              <span style={{ color: 'var(--c-primary)', flexShrink: 0 }}>★</span>
+              <span>{cert}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Education */}
+      <div style={{ ...cardStyle }}>
+        <div style={sectionLabelStyle}>EDUCATION</div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', marginBottom: '1.25rem' }}>
+          <div>
+            <div
+              style={{
+                color: 'var(--c-heading)',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '1rem',
+                fontWeight: 600,
+                marginBottom: '0.3rem',
+              }}
+            >
+              GRIFFITH_UNIVERSITY
+            </div>
+            <div
+              style={{
+                color: 'var(--c-body)',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.85rem',
+              }}
+            >
+              Master of IT — Software Development
+            </div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.35rem' }}>
+            <span className="term-tag" style={{ fontSize: '0.72rem', padding: '4px 12px' }}>
+              2023 — 2025
+            </span>
+            <span
+              style={{
+                color: 'var(--c-faint)',
+                fontFamily: 'JetBrains Mono, monospace',
+                fontSize: '0.7rem',
+              }}
+            >
+              GPA: 6.4 / 7.0 &nbsp;|&nbsp; ★ Academic Excellence Award
+            </span>
+          </div>
+        </div>
+        <hr className="term-divider" style={{ marginBottom: '1.25rem' }} />
+        <div
+          style={{
+            color: 'var(--c-faint)',
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '0.68rem',
+            letterSpacing: '0.12em',
+            marginBottom: '0.75rem',
+          }}
+        >
+          RELEVANT_COURSES:
+        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+          {COURSES.map((c) => (
+            <span key={c} className="term-tag">{c}</span>
+          ))}
+        </div>
+      </div>
+
+      {/* Experience */}
+      <div
+        style={{
+          ...cardStyle,
+          borderLeft: '2px solid var(--c-primary)',
+          marginBottom: 0,
+        }}
+      >
+        <div style={sectionLabelStyle}>WORK_EXPERIENCE</div>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', marginBottom: '1.25rem' }}>
+          <div>
+            <div
+              style={{
+                color: 'var(--c-heading)',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '1.15rem',
+                fontWeight: 700,
+                marginBottom: '0.3rem',
+              }}
+            >
+              APYAPP
+            </div>
+            <div
+              style={{
+                color: 'var(--c-body)',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.85rem',
+              }}
+            >
+              Software Developer — Internship &nbsp;|&nbsp; Sydney (Remote)
+            </div>
+          </div>
+          <span
+            className="term-tag"
+            style={{
+              fontSize: '0.75rem',
+              padding: '5px 14px',
+              borderRadius: '4px',
+              border: '1px solid var(--c-primary)',
+            }}
+          >
+            MAR 2025 — JUL 2025
+          </span>
         </div>
 
+        <hr className="term-divider" style={{ marginBottom: '1.25rem' }} />
+
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
+          {EXPERIENCE.map((item, i) => (
+            <li
+              key={i}
+              style={{
+                display: 'flex',
+                gap: '0.75rem',
+                color: 'var(--c-body)',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.875rem',
+                lineHeight: 1.75,
+              }}
+            >
+              <span style={{ color: 'var(--c-primary)', flexShrink: 0, marginTop: '0.1rem' }}>▸</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
       </div>
+
     </section>
   );
 };

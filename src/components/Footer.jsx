@@ -3,37 +3,42 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 export const Footer = () => {
   return (
     <footer
-      className="w-full py-4"
       style={{
+        padding: '2rem 3rem',
         borderTop: '1px solid var(--c-border)',
-        background: 'var(--c-nav-bg)',
-        fontFamily: 'JetBrains Mono',
-        transition: 'background 0.4s ease, border-color 0.4s ease',
+        transition: 'border-color 0.4s ease',
       }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <p className="text-xs" style={{ color: 'var(--c-label)' }}>
-            © {new Date().getFullYear()} CHAO_YUAN &nbsp;|&nbsp; ALL_RIGHTS_RESERVED
-          </p>
-          <div className="flex gap-5">
-            <a
-              href="https://github.com/Chao-777"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              <FaGithub size={20} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/chao-yuan-nic777/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              <FaLinkedin size={20} />
-            </a>
-          </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+        <p
+          style={{
+            color: 'var(--c-faint)',
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '0.72rem',
+            margin: 0,
+          }}
+        >
+          © {new Date().getFullYear()} CHAO_YUAN &nbsp;|&nbsp; ALL_RIGHTS_RESERVED
+        </p>
+        <div style={{ display: 'flex', gap: '1.25rem' }}>
+          <a
+            href="https://github.com/Chao-777"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="GitHub"
+          >
+            <FaGithub size={18} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/chao-yuan-nic777/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin size={18} />
+          </a>
         </div>
       </div>
     </footer>

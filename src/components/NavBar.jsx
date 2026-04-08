@@ -1,104 +1,135 @@
 import { useEffect, useState } from 'react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
-const pad = (n) => String(n).padStart(2, '0');
-const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+const NAV_ITEMS = [
+  ['HOME',     'home'],
+  ['ABOUT',    'about'],
+  ['PROJECTS', 'projects'],
+  ['CONTACT',  'contact'],
+];
 
-export const NavBar = ({ menuOpen, setMenuOpen, theme, setTheme }) => {
-  const [time, setTime] = useState('');
+export const NavBar = ({ theme, setTheme }) => {
+  const isDay = theme === 'day';
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-  }, [menuOpen]);
-
-  useEffect(() => {
-    const tick = () => {
-      const now = new Date();
-      const date = `${pad(now.getDate())}-${MONTHS[now.getMonth()]}-${now.getFullYear()}`;
-      const clock = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
-      setTime(`${date} ${clock}`);
+    const onScroll = () => {
+      const scrollY = window.scrollY + window.innerHeight * 0.35;
+      // Walk sections in reverse so the topmost visible one wins
+      const ids = ['contact', 'projects', 'about', 'home'];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) {
+          setActiveSection(id);
+          return;
+        }
+      }
     };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const isDay = theme === 'day';
-
   return (
-    <nav
-      className="sticky top-0 w-full z-40"
-      style={{
-        background: 'var(--c-nav-bg)',
-        borderBottom: '1px solid var(--c-border)',
-        backdropFilter: 'blur(8px)',
-        fontFamily: 'JetBrains Mono',
-        transition: 'background 0.4s ease, border-color 0.4s ease',
-      }}
+    <div
+      className="flex flex-col justify-between w-full h-full"
+      style={{ padding: '6rem 4rem 4rem 4rem' }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── Top: identity + nav ─────────────────────────── */}
+      <div>
+        {/* Name */}
+        <a href="#home" style={{ textDecoration: 'none' }}>
+          <h1
+            style={{
+              color: 'var(--c-heading)',
+              fontSize: '2.75rem',
+              fontWeight: 700,
+              fontFamily: 'Inter, sans-serif',
+              lineHeight: 1.05,
+              marginBottom: '0.75rem',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            CHAO YUAN
+          </h1>
+        </a>
 
-        {/* Row 1 — Node / Title / Clock */}
-        <div
-          className="flex justify-between items-center py-1.5"
-          style={{ borderBottom: '1px solid var(--c-border)' }}
+        {/* Title */}
+        <h2
+          style={{
+            color: 'var(--c-mid)',
+            fontSize: '1rem',
+            fontWeight: 500,
+            fontFamily: 'Inter, sans-serif',
+            marginBottom: '1.25rem',
+            letterSpacing: '0.01em',
+          }}
         >
-          <span className="text-xs" style={{ color: 'var(--c-label)' }}>
-            Node:&nbsp;<span style={{ color: 'var(--c-primary)' }}>CHAO_YUAN</span>
-          </span>
-          <span
-            className="hidden md:block text-xs font-bold glow"
-            style={{ color: 'var(--c-primary)', letterSpacing: '0.18em' }}
-          >
-            PORTFOLIO_SYSTEM v1.0
-          </span>
-          <span className="text-xs" style={{ color: 'var(--c-label)' }}>
-            {time}
-          </span>
-        </div>
+          Software Developer
+        </h2>
 
-        {/* Row 2 — Status / Nav / Actions */}
-        <div className="flex justify-between items-center py-1.5">
-          <span className="text-xs" style={{ color: 'var(--c-label)' }}>
-            Status:&nbsp;
-            <span className="glow" style={{ color: 'var(--c-primary)' }}>ONLINE</span>
-          </span>
+        {/* Short tagline */}
+        <p
+          style={{
+            color: 'var(--c-body)',
+            fontSize: '0.875rem',
+            lineHeight: 1.75,
+            maxWidth: '300px',
+            marginBottom: '3.5rem',
+          }}
+        >
+          AWS-certified developer building robust, scalable full-stack systems.
+          Open to full-time opportunities.
+        </p>
 
-          {/* Desktop nav links */}
-          <div className="hidden md:flex items-center gap-8">
-            {[['HOME','#home'],['ABOUT','#about'],['PROJECTS','#projects']].map(([label, href]) => (
-              <a key={label} href={href} className="nav-link">[{label}]</a>
+        {/* Nav */}
+        <nav>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            {NAV_ITEMS.map(([label, id]) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  className={`nav-link${activeSection === id ? ' active' : ''}`}
+                >
+                  {label}
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
+        </nav>
+      </div>
 
-          {/* Right actions */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="#contact"
-              className="term-btn-ghost"
-              style={{ padding: '3px 12px', fontSize: '0.72rem' }}
-            >
-              [CONTACT_ME]
-            </a>
-            <button
-              className="theme-btn"
-              onClick={() => setTheme(isDay ? 'night' : 'day')}
-              title={isDay ? 'Switch to Night mode' : 'Switch to Day mode'}
-            >
-              {isDay ? '☾ NGT' : '☀ DAY'}
-            </button>
-          </div>
-
-          {/* Mobile hamburger */}
-          <div
-            onClick={() => setMenuOpen((prev) => !prev)}
-            className="md:hidden cursor-pointer text-xl"
-            style={{ color: 'var(--c-primary)' }}
+      {/* ── Bottom: social + theme toggle ──────────────── */}
+      <div>
+        <div style={{ display: 'flex', gap: '1.25rem', marginBottom: '1.5rem' }}>
+          <a
+            href="https://github.com/Chao-777"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="GitHub"
           >
-            &#9776;
-          </div>
+            <FaGithub size={22} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/chao-yuan-nic777/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin size={22} />
+          </a>
         </div>
 
+        <button
+          className="theme-btn"
+          onClick={() => setTheme(isDay ? 'night' : 'day')}
+          title={isDay ? 'Switch to Night mode' : 'Switch to Day mode'}
+        >
+          {isDay ? '☾ Night mode' : '☀ Day mode'}
+        </button>
       </div>
-    </nav>
+    </div>
   );
 };

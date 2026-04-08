@@ -45,112 +45,143 @@ const PROJECTS = [
 
 export const Projects = () => {
   return (
-    <section id="projects" className="min-h-screen py-20">
+    <section id="projects" style={{ padding: '4rem 3rem 4rem' }}>
       <RevealOnScroll>
-        <div className="w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-16 xl:px-24">
 
-          <div
-            className="text-xs mb-2"
-            style={{
-              color: 'var(--c-label)',
-              fontFamily: 'JetBrains Mono',
-              letterSpacing: '0.2em',
-            }}
-          >
-            &gt; PROJECT_LOG
-          </div>
-          <h2
-            className="text-2xl font-bold mb-8 glow"
-            style={{
-              color: 'var(--c-primary)',
-              fontFamily: 'JetBrains Mono',
-              letterSpacing: '0.1em',
-            }}
-          >
-            FEATURED_PROJECTS
-          </h2>
+        {/* Section header */}
+        <div
+          style={{
+            color: 'var(--c-primary)',
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '0.68rem',
+            letterSpacing: '0.2em',
+            marginBottom: '0.5rem',
+          }}
+        >
+          &gt; PROJECT_LOG
+        </div>
+        <h2
+          className="section-heading"
+          style={{ marginBottom: '2.5rem' }}
+        >
+          FEATURED_PROJECTS
+        </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {PROJECTS.map((proj) => (
-              <div key={proj.id} className="term-panel p-6 project-card">
-
-                {/* Header */}
-                <div className="flex justify-between items-start mb-3">
-                  <div>
-                    <span
-                      className="text-xs mr-2"
-                      style={{ color: 'var(--c-faint)', fontFamily: 'JetBrains Mono' }}
-                    >
-                      [{proj.id}]
-                    </span>
-                    <span
-                      className="text-base font-bold glow"
-                      style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono' }}
-                    >
-                      {proj.name}
-                    </span>
-                  </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.25rem' }}>
+          {PROJECTS.map((proj) => (
+            <div
+              key={proj.id}
+              className="project-card"
+              style={{
+                background: 'var(--c-panel)',
+                border: '1px solid var(--c-border)',
+                borderRadius: '4px',
+                padding: '1.75rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0',
+              }}
+            >
+              {/* Header */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
                   <span
-                    className="term-tag"
                     style={{
-                      borderColor:
-                        proj.status === 'DEPLOYED' ? 'var(--c-mid)' : 'var(--c-border)',
-                      color:
-                        proj.status === 'DEPLOYED' ? 'var(--c-primary)' : 'var(--c-faint)',
+                      color: 'var(--c-faint)',
+                      fontFamily: 'JetBrains Mono, monospace',
+                      fontSize: '0.68rem',
                     }}
                   >
-                    {proj.status}
+                    [{proj.id}]
+                  </span>
+                  <span
+                    style={{
+                      color: 'var(--c-heading)',
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '1rem',
+                      fontWeight: 700,
+                    }}
+                  >
+                    {proj.name}
                   </span>
                 </div>
-
-                <div
-                  className="text-xs mb-3"
+                <span
+                  className="term-tag"
                   style={{
-                    color: 'var(--c-faint)',
-                    fontFamily: 'JetBrains Mono',
-                    letterSpacing: '0.08em',
+                    borderRadius: '4px',
+                    padding: '3px 10px',
+                    color: proj.status === 'DEPLOYED' ? 'var(--c-primary)' : 'var(--c-faint)',
+                    background: proj.status === 'DEPLOYED' ? 'var(--c-highlight)' : 'transparent',
+                    border: `1px solid ${proj.status === 'DEPLOYED' ? 'var(--c-border)' : 'var(--c-faint)'}`,
+                    flexShrink: 0,
+                    marginLeft: '0.5rem',
                   }}
                 >
-                  TYPE: {proj.type}
-                </div>
-
-                <hr className="term-divider mb-3" />
-
-                <p
-                  className="text-xs mb-4 leading-relaxed"
-                  style={{ color: 'var(--c-body)', fontFamily: 'JetBrains Mono' }}
-                >
-                  {proj.desc}
-                </p>
-
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {proj.stack.map((t) => (
-                    <span key={t} className="term-tag">{t}</span>
-                  ))}
-                </div>
-
-                {proj.link ? (
-                  <a
-                    href={proj.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link"
-                  >
-                    {proj.linkLabel}
-                  </a>
-                ) : (
-                  <span
-                    className="text-xs"
-                    style={{ color: 'var(--c-faint)', fontFamily: 'JetBrains Mono' }}
-                  >
-                    → IN_DEVELOPMENT...
-                  </span>
-                )}
+                  {proj.status}
+                </span>
               </div>
-            ))}
-          </div>
 
+              {/* Type */}
+              <div
+                style={{
+                  color: 'var(--c-faint)',
+                  fontFamily: 'JetBrains Mono, monospace',
+                  fontSize: '0.65rem',
+                  letterSpacing: '0.08em',
+                  marginBottom: '0.75rem',
+                }}
+              >
+                TYPE: {proj.type}
+              </div>
+
+              <hr className="term-divider" style={{ marginBottom: '1rem' }} />
+
+              {/* Description */}
+              <p
+                style={{
+                  color: 'var(--c-body)',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.825rem',
+                  lineHeight: 1.75,
+                  marginBottom: '1.25rem',
+                  flex: 1,
+                }}
+              >
+                {proj.desc}
+              </p>
+
+              {/* Stack tags */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.25rem' }}>
+                {proj.stack.map((t) => (
+                  <span key={t} className="term-tag">{t}</span>
+                ))}
+              </div>
+
+              {/* Link */}
+              {proj.link ? (
+                <a
+                  href={proj.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  {proj.linkLabel}
+                </a>
+              ) : (
+                <span
+                  style={{
+                    color: 'var(--c-faint)',
+                    fontFamily: 'JetBrains Mono, monospace',
+                    fontSize: '0.72rem',
+                  }}
+                >
+                  → IN_DEVELOPMENT...
+                </span>
+              )}
+            </div>
+          ))}
         </div>
+
       </RevealOnScroll>
     </section>
   );
