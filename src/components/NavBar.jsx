@@ -2,21 +2,20 @@ import { useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const NAV_ITEMS = [
-  ['HOME',     'home'],
-  ['ABOUT',    'about'],
-  ['PROJECTS', 'projects'],
-  ['CONTACT',  'contact'],
+  ['About',      'about'],
+  ['Experience', 'experience'],
+  ['Projects',   'projects'],
+  ['Contact',    'contact'],
 ];
 
 export const NavBar = ({ theme, setTheme }) => {
   const isDay = theme === 'day';
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
     const onScroll = () => {
       const scrollY = window.scrollY + window.innerHeight * 0.35;
-      // Walk sections in reverse so the topmost visible one wins
-      const ids = ['contact', 'projects', 'about', 'home'];
+      const ids = ['contact', 'projects', 'experience', 'about'];
       for (const id of ids) {
         const el = document.getElementById(id);
         if (el && el.offsetTop <= scrollY) {
@@ -38,7 +37,7 @@ export const NavBar = ({ theme, setTheme }) => {
       {/* ── Top: identity + nav ─────────────────────────── */}
       <div>
         {/* Name */}
-        <a href="#home" style={{ textDecoration: 'none' }}>
+        <a href="#about" style={{ textDecoration: 'none' }}>
           <h1
             style={{
               color: 'var(--c-heading)',
@@ -50,7 +49,7 @@ export const NavBar = ({ theme, setTheme }) => {
               letterSpacing: '-0.01em',
             }}
           >
-            CHAO YUAN
+            Chao Yuan
           </h1>
         </a>
 
@@ -58,7 +57,7 @@ export const NavBar = ({ theme, setTheme }) => {
         <h2
           style={{
             color: 'var(--c-mid)',
-            fontSize: '1rem',
+            fontSize: '1.1rem',
             fontWeight: 500,
             fontFamily: 'Inter, sans-serif',
             marginBottom: '1.25rem',
@@ -72,14 +71,14 @@ export const NavBar = ({ theme, setTheme }) => {
         <p
           style={{
             color: 'var(--c-body)',
-            fontSize: '0.875rem',
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '0.9rem',
             lineHeight: 1.75,
             maxWidth: '300px',
             marginBottom: '3.5rem',
           }}
         >
-          AWS-certified developer building robust, scalable full-stack systems.
-          Open to full-time opportunities.
+          I build accessible, scalable full-stack applications with a focus on clean architecture and great user experience.
         </p>
 
         {/* Nav */}

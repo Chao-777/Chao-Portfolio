@@ -7,9 +7,11 @@ const FieldLabel = ({ children }) => (
     style={{
       display: 'block',
       color: 'var(--c-faint)',
-      fontFamily: 'JetBrains Mono, monospace',
-      fontSize: '0.68rem',
-      letterSpacing: '0.12em',
+      fontFamily: 'Inter, sans-serif',
+      fontSize: '0.75rem',
+      fontWeight: 600,
+      letterSpacing: '0.08em',
+      textTransform: 'uppercase',
       marginBottom: '0.5rem',
     }}
   >
@@ -26,16 +28,16 @@ export const Contact = () => {
     setError('');
 
     if (!formData.name.trim()) {
-      setError('VALIDATION_ERROR: SENDER_ID is required.');
+      setError('Please enter your name.');
       return;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email.trim())) {
-      setError('VALIDATION_ERROR: Invalid CHANNEL format.');
+      setError('Please enter a valid email address.');
       return;
     }
     if (!formData.message.trim()) {
-      setError('VALIDATION_ERROR: MESSAGE cannot be empty.');
+      setError('Please enter a message.');
       return;
     }
 
@@ -48,43 +50,41 @@ export const Contact = () => {
       )
       .then(
         () => {
-          alert('TRANSMISSION_SUCCESS: Message sent.');
+          alert('Message sent successfully!');
           setFormData({ name: '', email: '', message: '' });
         },
         () => {
-          setError('TRANSMISSION_ERROR: Failed to send. Try again.');
+          setError('Failed to send message. Please try again.');
         }
       );
   };
 
   return (
-    <section id="contact" style={{ padding: '4rem 3rem 4rem' }}>
+    <section id="contact" style={{ padding: '4rem 3rem' }}>
       <RevealOnScroll>
 
-        {/* Section header */}
-        <div
+        <div className="section-label">Contact</div>
+        <h2 className="section-heading">Get In Touch</h2>
+
+        <p
           style={{
-            color: 'var(--c-primary)',
-            fontFamily: 'JetBrains Mono, monospace',
-            fontSize: '0.68rem',
-            letterSpacing: '0.2em',
-            marginBottom: '0.5rem',
+            color: 'var(--c-body)',
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '0.95rem',
+            lineHeight: 1.85,
+            maxWidth: '540px',
+            marginBottom: '2.5rem',
           }}
         >
-          &gt; ESTABLISH_CONNECTION
-        </div>
-        <h2
-          className="section-heading"
-          style={{ marginBottom: '2.5rem' }}
-        >
-          CONTACT_ME
-        </h2>
+          I'm currently open to full-time opportunities. Whether you have a question, a project
+          in mind, or just want to say hi — my inbox is always open.
+        </p>
 
         <div
           style={{
             background: 'var(--c-panel)',
             border: '1px solid var(--c-border)',
-            borderRadius: '4px',
+            borderRadius: '8px',
             padding: '2rem',
           }}
         >
@@ -99,24 +99,24 @@ export const Contact = () => {
               }}
             >
               <div>
-                <FieldLabel>SENDER_ID:</FieldLabel>
+                <FieldLabel>Name</FieldLabel>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
-                  placeholder="your name..."
+                  placeholder="Your name"
                   required
                   className="term-input"
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
               </div>
               <div>
-                <FieldLabel>CHANNEL:</FieldLabel>
+                <FieldLabel>Email</FieldLabel>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
-                  placeholder="your email..."
+                  placeholder="your@email.com"
                   required
                   className="term-input"
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -125,12 +125,12 @@ export const Contact = () => {
             </div>
 
             <div style={{ marginBottom: '1.25rem' }}>
-              <FieldLabel>MESSAGE:</FieldLabel>
+              <FieldLabel>Message</FieldLabel>
               <textarea
                 name="message"
                 value={formData.message}
                 rows={6}
-                placeholder="your message..."
+                placeholder="Your message..."
                 required
                 className="term-input"
                 style={{ resize: 'vertical' }}
@@ -141,9 +141,9 @@ export const Contact = () => {
             {error && (
               <div
                 style={{
-                  color: 'var(--c-primary)',
-                  fontFamily: 'JetBrains Mono, monospace',
-                  fontSize: '0.75rem',
+                  color: 'var(--c-body)',
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.825rem',
                   border: '1px solid var(--c-border)',
                   borderRadius: '4px',
                   padding: '10px 14px',
@@ -151,12 +151,12 @@ export const Contact = () => {
                   marginBottom: '1.25rem',
                 }}
               >
-                ! {error}
+                {error}
               </div>
             )}
 
             <button type="submit" className="term-btn" style={{ width: '100%' }}>
-              ▶ TRANSMIT_MESSAGE
+              Send Message
             </button>
 
           </form>

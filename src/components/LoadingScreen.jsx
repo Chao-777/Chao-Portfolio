@@ -1,31 +1,23 @@
 import { useEffect, useState } from 'react';
 
-const BOOT_LINES = [
-  '> CHAO_PORTFOLIO_SYSTEM v1.0',
-  '> INITIALIZING...',
-  '> LOADING USER_PROFILE: CHAO_YUAN.............. OK',
-  '> VERIFYING AWS_CREDENTIALS.................... OK',
-  '> MOUNTING PROJECT_DATABASE.................... OK',
-  '> ESTABLISHING CONTACT_RELAY................... OK',
-  '> ALL SYSTEMS NOMINAL',
-];
-
 export const LoadingScreen = ({ onComplete }) => {
-  const [lines, setLines] = useState([]);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    let idx = 0;
+    const duration = 1600;
+    const interval = 30;
+    const steps = duration / interval;
+    let current = 0;
+
     const id = setInterval(() => {
-      if (idx < BOOT_LINES.length) {
-        setLines((prev) => [...prev, BOOT_LINES[idx]]);
-        idx++;
-        setProgress(Math.round((idx / BOOT_LINES.length) * 100));
-      } else {
+      current++;
+      setProgress(Math.min(Math.round((current / steps) * 100), 100));
+      if (current >= steps) {
         clearInterval(id);
-        setTimeout(() => { if (onComplete) onComplete(); }, 700);
+        setTimeout(() => { if (onComplete) onComplete(); }, 300);
       }
-    }, 280);
+    }, interval);
+
     return () => clearInterval(id);
   }, [onComplete]);
 
@@ -34,60 +26,37 @@ export const LoadingScreen = ({ onComplete }) => {
       className="fixed inset-0 z-50 flex flex-col items-center justify-center"
       style={{ background: 'var(--c-bg)' }}
     >
-      <div className="w-full max-w-lg px-8">
-        {/* Label */}
+      <div style={{ width: '100%', maxWidth: '320px', padding: '0 2rem' }}>
+        {/* Name */}
         <div
-          className="text-xs mb-6"
           style={{
-            color: 'var(--c-primary)',
-            fontFamily: 'JetBrains Mono, monospace',
-            letterSpacing: '0.2em',
+            color: 'var(--c-heading)',
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '1.5rem',
+            fontWeight: 700,
+            letterSpacing: '-0.01em',
+            marginBottom: '0.5rem',
           }}
         >
-          PORTFOLIO_SYSTEM — BOOT_SEQUENCE
+          Chao Yuan
         </div>
-
-        {/* Lines */}
-        <div className="space-y-1 mb-2">
-          {lines.map((line, i) => (
-            <div
-              key={i}
-              className="text-sm"
-              style={{
-                color: i === lines.length - 1 ? 'var(--c-heading)' : 'var(--c-body)',
-                fontFamily: 'JetBrains Mono, monospace',
-              }}
-            >
-              {line}
-            </div>
-          ))}
-        </div>
-
-        <span
-          className="animate-blink text-sm"
-          style={{ color: 'var(--c-primary)', fontFamily: 'JetBrains Mono, monospace' }}
+        <div
+          style={{
+            color: 'var(--c-body)',
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '0.85rem',
+            marginBottom: '2rem',
+          }}
         >
-          _
-        </span>
+          Software Developer
+        </div>
 
         {/* Progress bar */}
-        <div className="mt-8 flex items-center gap-4">
-          <div className="flex-1 term-progress-bg" style={{ height: '4px' }}>
-            <div
-              className="term-progress-fill"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-          <span
-            className="text-xs"
-            style={{
-              color: 'var(--c-primary)',
-              fontFamily: 'JetBrains Mono, monospace',
-              minWidth: '42px',
-            }}
-          >
-            {progress}%
-          </span>
+        <div className="term-progress-bg" style={{ height: '2px' }}>
+          <div
+            className="term-progress-fill"
+            style={{ width: `${progress}%`, transition: 'width 0.03s linear' }}
+          />
         </div>
       </div>
     </div>

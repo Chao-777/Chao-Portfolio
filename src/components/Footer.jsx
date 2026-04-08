@@ -4,21 +4,21 @@ export const Footer = () => {
   return (
     <footer
       style={{
-        padding: '2rem 3rem',
+        padding: '3rem',
         borderTop: '1px solid var(--c-border)',
         transition: 'border-color 0.4s ease',
       }}
     >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
         <p
           style={{
             color: 'var(--c-faint)',
-            fontFamily: 'JetBrains Mono, monospace',
-            fontSize: '0.72rem',
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '0.8rem',
             margin: 0,
           }}
         >
-          © {new Date().getFullYear()} CHAO_YUAN &nbsp;|&nbsp; ALL_RIGHTS_RESERVED
+          Designed &amp; built by Chao Yuan · {new Date().getFullYear()}
         </p>
         <div style={{ display: 'flex', gap: '1.25rem' }}>
           <a
@@ -41,6 +41,35 @@ export const Footer = () => {
           </a>
         </div>
       </div>
+
+      <p
+        style={{
+          color: 'var(--c-faint)',
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '0.775rem',
+          lineHeight: 1.75,
+          margin: 0,
+        }}
+      >
+        Coded in Visual Studio Code. Built with React and Tailwind CSS, deployed with GitHub Pages.
+        All text is set in the Inter typeface. Loosely inspired by the design of{' '}
+        <a
+          href="https://brittanychiang.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: 'var(--c-mid)',
+            textDecoration: 'none',
+            fontWeight: 500,
+            transition: 'color 0.2s',
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--c-primary)')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--c-mid)')}
+        >
+          Brittany Chiang
+        </a>
+        . Many thanks for the inspiration.
+      </p>
     </footer>
   );
 };

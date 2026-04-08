@@ -30,33 +30,37 @@ export const MobileMenu = ({ menuOpen, setMenuOpen, theme, setTheme }) => {
       {/* Nav links */}
       <nav>
         <ul style={{ listStyle: 'none', padding: 0, margin: 0, textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          {[['HOME','#home'],['ABOUT','#about'],['PROJECTS','#projects'],['CONTACT','#contact']].map(
-            ([label, href]) => (
-              <li key={label}>
-                <a
-                  href={href}
-                  onClick={() => setMenuOpen(false)}
-                  className={`transition-all duration-300 ${
-                    menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                  }`}
-                  style={{
-                    display: 'block',
-                    color: 'var(--c-heading)',
-                    textDecoration: 'none',
-                    fontSize: '1.75rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.1em',
-                    padding: '0.5rem 1rem',
-                    transition: 'color 0.2s',
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--c-primary)')}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--c-heading)')}
-                >
-                  [{label}]
-                </a>
-              </li>
-            )
-          )}
+          {[
+            ['About',      '#about'],
+            ['Experience', '#experience'],
+            ['Projects',   '#projects'],
+            ['Contact',    '#contact'],
+          ].map(([label, href]) => (
+            <li key={label}>
+              <a
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                className={`transition-all duration-300 ${
+                  menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                }`}
+                style={{
+                  display: 'block',
+                  color: 'var(--c-heading)',
+                  textDecoration: 'none',
+                  fontSize: '1.75rem',
+                  fontWeight: 700,
+                  fontFamily: 'Inter, sans-serif',
+                  letterSpacing: '0.05em',
+                  padding: '0.5rem 1rem',
+                  transition: 'color 0.2s',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--c-primary)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--c-heading)')}
+              >
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
 
@@ -66,7 +70,7 @@ export const MobileMenu = ({ menuOpen, setMenuOpen, theme, setTheme }) => {
         style={{ marginTop: '3rem' }}
         onClick={() => setTheme(isDay ? 'night' : 'day')}
       >
-        {isDay ? '☾ SWITCH TO NIGHT' : '☀ SWITCH TO DAY'}
+        {isDay ? '☾ Night mode' : '☀ Day mode'}
       </button>
     </div>
   );

@@ -3,8 +3,8 @@ import './index.css';
 import { LoadingScreen } from './components/LoadingScreen';
 import { NavBar } from './components/NavBar';
 import { MobileMenu } from './components/MobileMenu';
-import { Home } from './components/sections/Home';
 import { About } from './components/sections/About';
+import { Experience } from './components/sections/Experience';
 import { Projects } from './components/sections/Projects';
 import { Contact } from './components/sections/Contact';
 import { Footer } from './components/Footer';
@@ -39,17 +39,17 @@ function App() {
           }}
         >
           <a
-            href="#home"
+            href="#about"
             style={{
               color: 'var(--c-heading)',
               fontWeight: 700,
               fontSize: '1rem',
               fontFamily: 'Inter, sans-serif',
               textDecoration: 'none',
-              letterSpacing: '0.06em',
+              letterSpacing: '-0.01em',
             }}
           >
-            CHAO YUAN
+            Chao Yuan
           </a>
           <div className="flex items-center gap-3">
             <button
@@ -92,8 +92,8 @@ function App() {
 
           {/* Right scrollable content */}
           <main style={{ flex: 1, minWidth: 0 }}>
-            <Home />
             <About />
+            <Experience />
             <Projects />
             <Contact />
             <Footer />
