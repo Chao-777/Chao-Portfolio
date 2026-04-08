@@ -250,20 +250,6 @@ html, body {
   transform: translateY(-3px);
 }
 
-/* ── Progress bar ─────────────────────────────────────────── */
-
-.term-progress-bg {
-  border: 1px solid var(--c-border);
-  border-radius: 9999px;
-  overflow: hidden;
-}
-.term-progress-fill {
-  height: 100%;
-  background: var(--c-primary);
-  border-radius: 9999px;
-  transition: width 0.3s ease;
-}
-
 /* ── Section label + heading ──────────────────────────────── */
 
 .section-label {
@@ -285,25 +271,6 @@ html, body {
   letter-spacing: -0.01em;
 }
 
-/* ── Animations ───────────────────────────────────────────── */
-
-@layer utilities {
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
-  }
-  .animate-blink {
-    animation: blink 1s step-end infinite;
-  }
-
-  @keyframes loading {
-    0%   { transform: translateX(-100%); }
-    100% { transform: translateX(250%); }
-  }
-  .animate-loading-bar {
-    animation: loading 1s ease infinite;
-  }
-}
 
 /* ── Scroll reveal ────────────────────────────────────────── */
 
@@ -315,4 +282,25 @@ html, body {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ── Mobile responsive ────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  #experience,
+  #projects {
+    padding: 3rem 1.25rem !important;
+  }
+
+  .exp-card,
+  .project-card {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .exp-card > div:first-child,
+  .project-card > div:first-child {
+    width: auto;
+    padding-top: 0;
+  }
 }

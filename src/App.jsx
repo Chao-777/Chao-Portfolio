@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import './index.css';
-import { LoadingScreen } from './components/LoadingScreen';
 import { NavBar } from './components/NavBar';
 import { MobileMenu } from './components/MobileMenu';
 import { About } from './components/sections/About';
@@ -10,7 +9,6 @@ import { Contact } from './components/sections/Contact';
 import { Footer } from './components/Footer';
 
 function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState('night');
   const isDay = theme === 'day';
@@ -21,13 +19,7 @@ function App() {
 
   return (
     <>
-      {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
-
-      <div
-        className={`min-h-screen transition-opacity duration-700 ${
-          isLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
+      <div className="min-h-screen">
         {/* Mobile sticky header — hidden on desktop */}
         <header
           className="lg:hidden sticky top-0 z-40 flex justify-between items-center px-6 py-4"
