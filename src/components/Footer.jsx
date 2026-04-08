@@ -1,4 +1,3 @@
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export const Footer = () => {
   return (
@@ -13,7 +12,6 @@ export const Footer = () => {
         <p
           style={{
             color: 'var(--c-faint)',
-            fontFamily: 'Inter, sans-serif',
             fontSize: '0.8rem',
             margin: 0,
           }}
@@ -25,7 +23,6 @@ export const Footer = () => {
       <p
         style={{
           color: 'var(--c-faint)',
-          fontFamily: 'Inter, sans-serif',
           fontSize: '0.775rem',
           lineHeight: 1.75,
           margin: 0,

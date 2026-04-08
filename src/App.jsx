@@ -34,9 +34,8 @@ function App() {
             href="#about"
             style={{
               color: 'var(--c-heading)',
-              fontWeight: 700,
-              fontSize: '1rem',
-              fontFamily: 'Inter, sans-serif',
+              fontWeight: 500,
+              fontSize: '2rem',
               textDecoration: 'none',
               letterSpacing: '-0.01em',
             }}

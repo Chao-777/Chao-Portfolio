@@ -7,7 +7,6 @@ const FieldLabel = ({ children }) => (
     style={{
       display: 'block',
       color: 'var(--c-faint)',
-      fontFamily: 'Inter, sans-serif',
       fontSize: '0.75rem',
       fontWeight: 600,
       letterSpacing: '0.08em',
@@ -67,7 +66,6 @@ export const Contact = () => {
         <p
           style={{
             color: 'var(--c-body)',
-            fontFamily: 'Inter, sans-serif',
             fontSize: '0.95rem',
             lineHeight: 1.85,
             maxWidth: '540px',
@@ -140,7 +138,6 @@ export const Contact = () => {
               <div
                 style={{
                   color: 'var(--c-body)',
-                  fontFamily: 'Inter, sans-serif',
                   fontSize: '0.825rem',
                   border: '1px solid var(--c-border)',
                   borderRadius: '4px',

@@ -6,7 +6,7 @@ const PROJECTS = [
     name: 'ReviewIt',
     type: 'Full-Stack Web Application',
     desc: 'A platform where users can review, rate, and discuss anything across flexible categories — products, books, media, ideas, and experiences. Features JWT authentication, role-based access, and a CI/CD deployment pipeline.',
-    stack: ['C#', '.NET', 'TypeScript', 'React', 'PostgreSQL', 'Tailwind CSS', 'AWS', 'CI/CD'],
+    stack: ['C#', '.NET', 'TypeScript', 'React', 'PostgreSQL', 'Tailwind CSS', 'AWS', ],
     status: 'Deployed',
     link: 'https://github.com/Chao-777/ReviewIt',
   },
@@ -14,7 +14,7 @@ const PROJECTS = [
     name: 'EasyPark',
     type: 'Parking Management System',
     desc: 'A parking access control system with slot management and guest token allocation for residential and commercial use. Supports multiple properties and user roles.',
-    stack: ['JavaScript', 'TypeScript', 'Node.js', 'EJS', 'MySQL', 'Bootstrap', 'CI/CD'],
+    stack: ['JavaScript', 'TypeScript', 'Node.js', 'EJS', 'MySQL', 'Bootstrap'],
     status: 'In Development',
     link: null,
   },
@@ -57,7 +57,6 @@ export const Projects = () => {
                 <span
                   style={{
                     color: proj.status === 'Deployed' ? 'var(--c-primary)' : 'var(--c-faint)',
-                    fontFamily: 'Inter, sans-serif',
                     fontSize: '0.72rem',
                     fontWeight: 500,
                     letterSpacing: '0.04em',
@@ -102,7 +101,6 @@ export const Projects = () => {
                 <div
                   style={{
                     color: 'var(--c-faint)',
-                    fontFamily: 'Inter, sans-serif',
                     fontSize: '0.78rem',
                     marginBottom: '0.75rem',
                   }}
@@ -113,7 +111,6 @@ export const Projects = () => {
                 <p
                   style={{
                     color: 'var(--c-body)',
-                    fontFamily: 'Inter, sans-serif',
                     fontSize: '0.875rem',
                     lineHeight: 1.75,
                     margin: '0 0 1rem',

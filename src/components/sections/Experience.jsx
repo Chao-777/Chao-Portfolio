@@ -13,7 +13,7 @@ const JOBS = [
       'Contributed to admin tooling for managing users, properties, and transaction records.',
       'Collaborated in an Agile team using Git for version control and feature branch workflows.',
     ],
-    stack: ['Node.js', 'JavaScript', 'TypeScript', 'Bootstrap', 'MySQL', 'CI/CD'],
+    stack: ['Node.js', 'TypeScript', 'EJS','Bootstrap', 'MySQL', 'CI/CD'],
   },
 ];
 
@@ -34,7 +34,6 @@ export const Experience = () => {
                   width: '130px',
                   paddingTop: '0.2rem',
                   color: 'var(--c-faint)',
-                  fontFamily: 'Inter, sans-serif',
                   fontSize: '0.75rem',
                   fontWeight: 400,
                   letterSpacing: '0.04em',
@@ -50,7 +49,6 @@ export const Experience = () => {
                 <div
                   style={{
                     color: 'var(--c-heading)',
-                    fontFamily: 'Inter, sans-serif',
                     fontSize: '0.95rem',
                     fontWeight: 400,
                     marginBottom: '0.15rem',
@@ -65,7 +63,6 @@ export const Experience = () => {
                 <div
                   style={{
                     color: 'var(--c-faint)',
-                    fontFamily: 'Inter, sans-serif',
                     fontSize: '0.8rem',
                     marginBottom: '0.85rem',
                   }}
@@ -81,7 +78,6 @@ export const Experience = () => {
                         display: 'flex',
                         gap: '0.6rem',
                         color: 'var(--c-body)',
-                        fontFamily: 'Inter, sans-serif',
                         fontSize: '0.875rem',
                         lineHeight: 1.7,
                       }}
@@ -111,7 +107,6 @@ export const Experience = () => {
             rel="noopener noreferrer"
             style={{
               color: 'var(--c-heading)',
-              fontFamily: 'Inter, sans-serif',
               fontSize: '0.875rem',
               fontWeight: 400,
               textDecoration: 'none',

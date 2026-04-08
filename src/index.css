@@ -7,8 +7,8 @@
   --c-bg:        #0a192f;
   --c-nav-bg:    rgba(10, 25, 47, 0.85);
   --c-primary:   #4ccbb0;
-  --c-heading:   #ccd6f6;
-  --c-mid:       #a8b2d8;
+  --c-heading:   #f4f7ff;
+  --c-mid:       #f4f7ff;
   --c-body:      #8892b0;
   --c-label:     #4ccbb0;
   --c-faint:     #495670;
@@ -17,7 +17,7 @@
   --c-glow:      0 10px 30px -15px rgba(2, 12, 27, 0.7);
   --c-glow-soft: rgba(100, 255, 218, 0.08);
   --c-btn-fg:    #0a192f;
-  --c-highlight: rgba(100, 255, 218, 0.08);
+  --c-highlight: rgba(128, 128, 128, 0.08);
 }
 
 .day-mode {
@@ -36,6 +36,10 @@
   --c-glow-soft: rgba(8, 145, 178, 0.08);
   --c-btn-fg:    #ffffff;
   --c-highlight: rgba(8, 145, 178, 0.06);
+}
+
+*, *::before, *::after {
+  font-feature-settings: "cv10", "cv11";
 }
 
 html, body {
@@ -64,7 +68,6 @@ html, body {
   background: var(--c-highlight);
   padding: 4px 12px;
   font-size: 0.72rem;
-  font-family: 'Inter', sans-serif;
   font-weight: 400;
   border-radius: 9999px;
   letter-spacing: 0.02em;
@@ -78,7 +81,6 @@ html, body {
   background: transparent;
   border: 1px solid var(--c-primary);
   padding: 12px 28px;
-  font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 400;
   cursor: pointer;
@@ -98,7 +100,6 @@ html, body {
   background: transparent;
   border: 1px solid var(--c-border);
   padding: 12px 28px;
-  font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
@@ -122,7 +123,6 @@ html, body {
   border: 1px solid var(--c-border);
   color: var(--c-heading);
   padding: 12px 16px;
-  font-family: 'Inter', sans-serif;
   font-size: 0.875rem;
   outline: none;
   border-radius: 4px;
@@ -151,7 +151,6 @@ html, body {
 .nav-link {
   color: var(--c-faint);
   text-decoration: none;
-  font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -187,7 +186,6 @@ html, body {
   background: transparent;
   border: 1px solid var(--c-border);
   padding: 5px 12px;
-  font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
   cursor: pointer;
   border-radius: 4px;
@@ -210,7 +208,6 @@ html, body {
 }
 .exp-card:hover {
   background: var(--c-highlight);
-  box-shadow: 0 0 0 1px var(--c-border);
 }
 
 .project-card {
@@ -222,7 +219,6 @@ html, body {
 }
 .project-card:hover {
   background: var(--c-highlight);
-  box-shadow: 0 0 0 1px var(--c-border);
 }
 .project-card:hover .project-title {
   color: var(--c-primary);
@@ -230,7 +226,6 @@ html, body {
 
 .project-title {
   color: var(--c-heading);
-  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   text-decoration: none;
@@ -254,7 +249,6 @@ html, body {
 
 .section-label {
   color: var(--c-primary);
-  font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -266,11 +260,9 @@ html, body {
   color: var(--c-heading);
   font-size: 1.75rem;
   font-weight: 700;
-  font-family: 'Inter', sans-serif;
   margin-bottom: 2.5rem;
   letter-spacing: -0.01em;
 }
-
 
 /* ── Scroll reveal ────────────────────────────────────────── */
 

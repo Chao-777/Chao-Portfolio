@@ -41,10 +41,8 @@ export const NavBar = ({ theme, setTheme }) => {
           <h1
             style={{
               color: 'var(--c-heading)',
-              fontSize: '2.75rem',
-              fontWeight: 700,
-              fontFamily: 'Inter, sans-serif',
-              lineHeight: 1.05,
+              fontSize: '3.3rem',
+              fontWeight: 600,
               marginBottom: '0.75rem',
               letterSpacing: '-0.01em',
             }}
@@ -59,7 +57,6 @@ export const NavBar = ({ theme, setTheme }) => {
             color: 'var(--c-mid)',
             fontSize: '1.1rem',
             fontWeight: 500,
-            fontFamily: 'Inter, sans-serif',
             marginBottom: '1.25rem',
             letterSpacing: '0.01em',
           }}
@@ -71,7 +68,6 @@ export const NavBar = ({ theme, setTheme }) => {
         <p
           style={{
             color: 'var(--c-body)',
-            fontFamily: 'Inter, sans-serif',
             fontSize: '0.9rem',
             lineHeight: 1.75,
             maxWidth: '300px',

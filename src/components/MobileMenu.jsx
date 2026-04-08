@@ -8,7 +8,6 @@ export const MobileMenu = ({ menuOpen, setMenuOpen, theme, setTheme }) => {
       }`}
       style={{
         background: 'var(--c-bg)',
-        fontFamily: 'Inter, sans-serif',
       }}
     >
       {/* Close button */}
@@ -49,7 +48,6 @@ export const MobileMenu = ({ menuOpen, setMenuOpen, theme, setTheme }) => {
                   textDecoration: 'none',
                   fontSize: '1.75rem',
                   fontWeight: 700,
-                  fontFamily: 'Inter, sans-serif',
                   letterSpacing: '0.05em',
                   padding: '0.5rem 1rem',
                   transition: 'color 0.2s',
