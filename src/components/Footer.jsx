@@ -20,26 +20,6 @@ export const Footer = () => {
         >
           Designed &amp; built by Chao Yuan · {new Date().getFullYear()}
         </p>
-        <div style={{ display: 'flex', gap: '1.25rem' }}>
-          <a
-            href="https://github.com/Chao-777"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-link"
-            aria-label="GitHub"
-          >
-            <FaGithub size={18} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/chao-yuan-nic777/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-link"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedin size={18} />
-          </a>
-        </div>
       </div>
 
       <p
@@ -51,7 +31,7 @@ export const Footer = () => {
           margin: 0,
         }}
       >
-        Coded in Visual Studio Code. Built with React and Tailwind CSS, deployed with GitHub Pages.
+        Built with React and Tailwind CSS, deployed with GitHub Pages.
         All text is set in the Inter typeface. Loosely inspired by the design of{' '}
         <a
           href="https://brittanychiang.com"

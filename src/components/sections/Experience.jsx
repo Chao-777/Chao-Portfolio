@@ -23,8 +23,6 @@ export const Experience = () => {
       <RevealOnScroll>
 
         <div className="section-label">Experience</div>
-        <h2 className="section-heading">Where I've Worked</h2>
-
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
           {JOBS.map((job, i) => (
             <div key={i} className="exp-card">
@@ -38,7 +36,7 @@ export const Experience = () => {
                   color: 'var(--c-faint)',
                   fontFamily: 'Inter, sans-serif',
                   fontSize: '0.75rem',
-                  fontWeight: 500,
+                  fontWeight: 400,
                   letterSpacing: '0.04em',
                   textTransform: 'uppercase',
                   lineHeight: 1.5,
@@ -54,7 +52,7 @@ export const Experience = () => {
                     color: 'var(--c-heading)',
                     fontFamily: 'Inter, sans-serif',
                     fontSize: '0.95rem',
-                    fontWeight: 600,
+                    fontWeight: 400,
                     marginBottom: '0.15rem',
                   }}
                 >
@@ -115,7 +113,7 @@ export const Experience = () => {
               color: 'var(--c-heading)',
               fontFamily: 'Inter, sans-serif',
               fontSize: '0.875rem',
-              fontWeight: 600,
+              fontWeight: 400,
               textDecoration: 'none',
               display: 'inline-flex',
               alignItems: 'center',

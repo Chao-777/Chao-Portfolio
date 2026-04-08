@@ -42,7 +42,7 @@ export const Home = () => {
             style={{
               color: 'var(--c-heading)',
               fontSize: '2.5rem',
-              fontWeight: 700,
+              fontWeight: 400,
               fontFamily: 'Inter, sans-serif',
               lineHeight: 1.05,
               marginBottom: '0.5rem',
@@ -51,7 +51,7 @@ export const Home = () => {
           >
             CHAO YUAN
           </h1>
-          <p style={{ color: 'var(--c-mid)', fontSize: '1rem', fontFamily: 'Inter, sans-serif', fontWeight: 500 }}>
+          <p style={{ color: 'var(--c-mid)', fontSize: '1rem', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
             Software Developer
           </p>
         </div>

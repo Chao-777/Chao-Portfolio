@@ -27,7 +27,6 @@ export const About = () => {
     <section id="about" style={{ padding: '6rem 3rem 4rem' }}>
 
       <div className="section-label">About</div>
-      <h2 className="section-heading">About Me</h2>
 
       {/* Bio */}
       <p style={{ color: 'var(--c-body)', fontFamily: 'Inter, sans-serif', fontSize: '0.95rem', lineHeight: 1.85, marginBottom: '1rem' }}>
@@ -46,7 +45,7 @@ export const About = () => {
       </p>
 
       {/* Skills */}
-      <h3 style={{ color: 'var(--c-heading)', fontFamily: 'Inter, sans-serif', fontSize: '1rem', fontWeight: 600, marginBottom: '1rem' }}>
+      <h3 style={{ color: 'var(--c-heading)', fontFamily: 'Inter, sans-serif', fontSize: '1rem', fontWeight: 400, marginBottom: '1rem' }}>
         Technologies
       </h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '2.5rem' }}>
@@ -77,7 +76,7 @@ export const About = () => {
       </div>
 
       {/* Certifications */}
-      <h3 style={{ color: 'var(--c-heading)', fontFamily: 'Inter, sans-serif', fontSize: '1rem', fontWeight: 600, marginBottom: '1rem' }}>
+      <h3 style={{ color: 'var(--c-heading)', fontFamily: 'Inter, sans-serif', fontSize: '1rem', fontWeight: 400, marginBottom: '1rem' }}>
         Certifications
       </h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '2.5rem' }}>
@@ -100,7 +99,7 @@ export const About = () => {
       </div>
 
       {/* Education */}
-      <h3 style={{ color: 'var(--c-heading)', fontFamily: 'Inter, sans-serif', fontSize: '1rem', fontWeight: 600, marginBottom: '1rem' }}>
+      <h3 style={{ color: 'var(--c-heading)', fontFamily: 'Inter, sans-serif', fontSize: '1rem', fontWeight: 400, marginBottom: '1rem' }}>
         Education
       </h3>
       <div
@@ -112,7 +111,7 @@ export const About = () => {
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
           <div>
-            <div style={{ color: 'var(--c-heading)', fontFamily: 'Inter, sans-serif', fontSize: '0.95rem', fontWeight: 600 }}>
+            <div style={{ color: 'var(--c-heading)', fontFamily: 'Inter, sans-serif', fontSize: '0.95rem', fontWeight: 400 }}>
               Master of Information Technology — Software Development
             </div>
             <div style={{ color: 'var(--c-body)', fontFamily: 'Inter, sans-serif', fontSize: '0.875rem' }}>

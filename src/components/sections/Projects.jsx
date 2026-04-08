@@ -42,8 +42,6 @@ export const Projects = () => {
       <RevealOnScroll>
 
         <div className="section-label">Projects</div>
-        <h2 className="section-heading">Things I've Built</h2>
-
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
           {PROJECTS.map((proj, i) => (
             <div key={i} className="project-card">
@@ -61,7 +59,7 @@ export const Projects = () => {
                     color: proj.status === 'Deployed' ? 'var(--c-primary)' : 'var(--c-faint)',
                     fontFamily: 'Inter, sans-serif',
                     fontSize: '0.72rem',
-                    fontWeight: 600,
+                    fontWeight: 500,
                     letterSpacing: '0.04em',
                     textTransform: 'uppercase',
                   }}

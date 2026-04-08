@@ -64,8 +64,6 @@ export const Contact = () => {
       <RevealOnScroll>
 
         <div className="section-label">Contact</div>
-        <h2 className="section-heading">Get In Touch</h2>
-
         <p
           style={{
             color: 'var(--c-body)',
