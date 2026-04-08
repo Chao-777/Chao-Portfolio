@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background -->
+  <rect width="64" height="64" fill="#0a192f" rx="10"/>
+  <!-- Subtle border accent -->
+  <rect x="1" y="1" width="62" height="62" fill="none" stroke="#4ccbb0" stroke-width="1.5" rx="9" opacity="0.4"/>
+  <!-- 超 character -->
+  <text
+    x="32"
+    y="47"
+    font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'STHeiti', serif"
+    font-size="40"
+    font-weight="700"
+    fill="#4ccbb0"
+    text-anchor="middle"
+    dominant-baseline="auto"
+  >超</text>
+</svg>
