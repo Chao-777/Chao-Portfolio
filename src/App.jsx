@@ -1,15 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './index.css';
 import { NavBar } from './components/NavBar';
-import { MobileMenu } from './components/MobileMenu';
 import { About } from './components/sections/About';
 import { Experience } from './components/sections/Experience';
 import { Projects } from './components/sections/Projects';
 import { Contact } from './components/sections/Contact';
 import { Footer } from './components/Footer';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState('night');
   const isDay = theme === 'day';
 
@@ -34,7 +33,7 @@ function App() {
             href="#about"
             style={{
               color: 'var(--c-heading)',
-              fontWeight: 500,
+              fontWeight: 600,
               fontSize: '2rem',
               textDecoration: 'none',
               letterSpacing: '-0.01em',
@@ -42,33 +41,35 @@ function App() {
           >
             Chao Yuan
           </a>
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setTheme(isDay ? 'night' : 'day')}
-              className="theme-btn"
-              title={isDay ? 'Switch to Night mode' : 'Switch to Day mode'}
-            >
-              {isDay ? '☾' : '☀'}
-            </button>
-            <button
-              onClick={() => setMenuOpen((prev) => !prev)}
-              style={{
-                color: 'var(--c-heading)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '1.4rem',
-                padding: '0 4px',
-                lineHeight: 1,
-              }}
-              aria-label="Open menu"
-            >
-              &#9776;
-            </button>
-          </div>
+          <button
+            onClick={() => setTheme(isDay ? 'night' : 'day')}
+            className="theme-btn"
+            title={isDay ? 'Switch to Night mode' : 'Switch to Day mode'}
+          >
+            {isDay ? '☾' : '☀'}
+          </button>
         </header>
 
-        <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} theme={theme} setTheme={setTheme} />
+        {/* Mobile hero — hidden on desktop */}
+        <div
+          className="lg:hidden"
+          style={{ padding: '2rem 1.5rem 0' }}
+        >
+          <h2 style={{ color: 'var(--c-mid)', fontSize: '1rem', fontWeight: 400, marginBottom: '0.75rem' }}>
+            Software Developer
+          </h2>
+          <p style={{ color: 'var(--c-body)', fontSize: '0.9rem', lineHeight: 1.75, marginBottom: '1.5rem', maxWidth: '340px' }}>
+            I build accessible, scalable full-stack applications with a focus on clean architecture and great user experience.
+          </p>
+          <div style={{ display: 'flex', gap: '1.25rem', marginBottom: '2rem' }}>
+            <a href="https://github.com/Chao-777" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
+              <FaGithub size={22} />
+            </a>
+            <a href="https://www.linkedin.com/in/chao-yuan-nic777/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
+              <FaLinkedin size={22} />
+            </a>
+          </div>
+        </div>
 
         {/* Two-column layout */}
         <div className="max-w-screen-xl mx-auto lg:flex">

@@ -1,4 +1,3 @@
-import { RevealOnScroll } from '../RevealOnScroll';
 import { FaGithub } from 'react-icons/fa';
 
 const PROJECTS = [
@@ -39,7 +38,6 @@ const PROJECTS = [
 export const Projects = () => {
   return (
     <section id="projects" style={{ padding: '4rem 3rem' }}>
-      <RevealOnScroll>
 
         <div className="section-label">Projects</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -130,7 +128,6 @@ export const Projects = () => {
           ))}
         </div>
 
-      </RevealOnScroll>
     </section>
   );
 };

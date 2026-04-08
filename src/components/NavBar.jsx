@@ -56,7 +56,7 @@ export const NavBar = ({ theme, setTheme }) => {
           style={{
             color: 'var(--c-mid)',
             fontSize: '1.1rem',
-            fontWeight: 500,
+            fontWeight: 400,
             marginBottom: '1.25rem',
             letterSpacing: '0.01em',
           }}

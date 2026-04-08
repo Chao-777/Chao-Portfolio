@@ -1,5 +1,3 @@
-import { RevealOnScroll } from '../RevealOnScroll';
-
 const JOBS = [
   {
     period: 'Mar — Jul 2025',
@@ -20,7 +18,6 @@ const JOBS = [
 export const Experience = () => {
   return (
     <section id="experience" style={{ padding: '4rem 3rem' }}>
-      <RevealOnScroll>
 
         <div className="section-label">Experience</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -123,7 +120,6 @@ export const Experience = () => {
           </a>
         </div>
 
-      </RevealOnScroll>
     </section>
   );
 };

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { RevealOnScroll } from '../RevealOnScroll';
 import emailjs from 'emailjs-com';
 
 const FieldLabel = ({ children }) => (
@@ -60,7 +59,6 @@ export const Contact = () => {
 
   return (
     <section id="contact" style={{ padding: '4rem 3rem' }}>
-      <RevealOnScroll>
 
         <div className="section-label">Contact</div>
         <p
@@ -157,7 +155,6 @@ export const Contact = () => {
           </form>
         </div>
 
-      </RevealOnScroll>
     </section>
   );
 };
