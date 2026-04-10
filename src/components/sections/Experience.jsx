@@ -19,7 +19,6 @@ export const Experience = () => {
   return (
     <section id="experience" style={{ padding: '4rem 3rem' }}>
 
-        <div className="section-label">Experience</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
           {JOBS.map((job, i) => (
             <div key={i} className="exp-card">

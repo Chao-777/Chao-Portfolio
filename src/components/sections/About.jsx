@@ -26,8 +26,6 @@ export const About = () => {
   return (
     <section id="about" style={{ padding: '6rem 3rem 4rem' }}>
 
-      <div className="section-label">About</div>
-
       {/* Bio */}
       <p style={{ color: 'var(--c-body)', fontSize: '0.95rem', lineHeight: 1.85, marginBottom: '1rem' }}>
         I'm a software developer based in Brisbane, Australia, with a strong foundation in building

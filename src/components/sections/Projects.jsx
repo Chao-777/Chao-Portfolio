@@ -2,20 +2,20 @@ import { FaGithub } from 'react-icons/fa';
 
 const PROJECTS = [
   {
+    name: 'HanInk',
+    type: 'Web Application',
+    desc: 'A browser-based tool that transforms any typed text (Chinese characters or English) into Chinese calligraphic tattoo previews. Users can explore authentic script styles, verify character meanings, preview placement on the body, and export tattoo-ready images to bring to their artist.',
+    stack: ['NEXT.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS', 'Three.js', 'Html2Canvas', 'Blob'],
+    status: 'Deployed',
+    link: 'https://github.com/Chao-777/HanInk',
+  },
+  {
     name: 'ReviewIt',
-    type: 'Full-Stack Web Application',
+    type: 'Web Application',
     desc: 'A platform where users can review, rate, and discuss anything across flexible categories — products, books, media, ideas, and experiences. Features JWT authentication, role-based access, and a CI/CD deployment pipeline.',
     stack: ['C#', '.NET', 'TypeScript', 'React', 'PostgreSQL', 'Tailwind CSS', 'AWS', ],
     status: 'Deployed',
     link: 'https://github.com/Chao-777/ReviewIt',
-  },
-  {
-    name: 'EasyPark',
-    type: 'Parking Management System',
-    desc: 'A parking access control system with slot management and guest token allocation for residential and commercial use. Supports multiple properties and user roles.',
-    stack: ['JavaScript', 'TypeScript', 'Node.js', 'EJS', 'MySQL', 'Bootstrap'],
-    status: 'In Development',
-    link: null,
   },
   {
     name: 'Education Management System',
@@ -39,7 +39,6 @@ export const Projects = () => {
   return (
     <section id="projects" style={{ padding: '4rem 3rem' }}>
 
-        <div className="section-label">Projects</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
           {PROJECTS.map((proj, i) => (
             <div key={i} className="project-card">

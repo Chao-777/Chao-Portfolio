@@ -60,7 +60,6 @@ export const Contact = () => {
   return (
     <section id="contact" style={{ padding: '4rem 3rem' }}>
 
-        <div className="section-label">Contact</div>
         <p
           style={{
             color: 'var(--c-body)',
