@@ -18,6 +18,14 @@ const PROJECTS = [
     link: 'https://github.com/Chao-777/ReviewIt',
   },
   {
+    name: 'Serverless Receipt Processing System',
+    type: 'AWS Lambda Application',
+    desc: 'An end-to-end serverless pipeline on AWS that automatically extracts, stores, and notifies on receipt data — zero servers, zero manual processing.',
+    stack: ['Python', 'Lambda', 'DynamoDB', 'S3', 'SES'],
+    status: 'Deployed',
+    link: 'https://github.com/Chao-777/Hogwarts-education-system',
+  },
+  {
     name: 'Education Management System',
     type: 'Web Application',
     desc: 'Education management platform with user registration, authentication, course management, and peer review assessments. Responsive UI built with Bootstrap and Blade templates.',

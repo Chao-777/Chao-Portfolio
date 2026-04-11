@@ -5,13 +5,13 @@ const JOBS = [
     company: 'ApyApp',
     location: 'Sydney (Remote)',
     bullets: [
-      'Developed features for a parking management web application using Node.js with HTML, CSS, and Bootstrap.',
-      'Implemented role-based access control and secure authentication for multiple user types.',
-      'Built booking and payment workflows supporting multiple properties and billing scenarios.',
-      'Contributed to admin tooling for managing users, properties, and transaction records.',
-      'Collaborated in an Agile team using Git for version control and feature branch workflows.',
+      'Developed a Node.js authentication platform utilising Role Based Access Control (RBAC), which provided fine-grained authorisation of multiple roles for users with the ability to manage permissions.',
+      'Created complex booking functionality using TypeScript, which is strongly typed to minimise run-time errors and increase code stability.',
+      'Built an integrated admin dashboard using EJS and Bootstrap that enabled the efficient management of user data and bookings through dynamically generated server-side rendered content.',
+      'Optimised the MySQL database schema to support high volumes of simultaneous booking transactions, as well as provide data integrity and performance for executed queries.',
+      'Streamlined the deployment process using CI/CD pipeline processes within an Agile framework to maximise the efficiency of releases and provide confirmation of quality via Git based reviews of source code',
     ],
-    stack: ['Node.js', 'TypeScript', 'EJS','Bootstrap', 'MySQL', 'CI/CD'],
+    stack: ['Node.js', 'TypeScript', 'EJS','Bootstrap', 'MySQL', 'CI/CD', 'Agile', 'Git', 'JWT', 'RBAC'],
   },
 ];
 
