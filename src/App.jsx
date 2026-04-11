@@ -11,13 +11,31 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 function App() {
   const [theme, setTheme] = useState('night');
   const isDay = theme === 'day';
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     document.body.classList.toggle('day-mode', theme === 'day');
   }, [theme]);
 
+  useEffect(() => {
+    const handleMouseMove = (e) => setMouse({ x: e.clientX, y: e.clientY });
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
     <>
+      {/* Mouse spotlight overlay */}
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          pointerEvents: 'none',
+          zIndex: 9999,
+          background: `radial-gradient(600px at ${mouse.x}px ${mouse.y}px, rgba(29, 78, 216, 0.10), transparent 70%)`,
+          transition: 'background 0.1s ease',
+        }}
+      />
       <div className="min-h-screen">
         {/* Mobile sticky header — hidden on desktop */}
         <header

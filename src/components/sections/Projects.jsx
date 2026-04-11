@@ -1,20 +1,22 @@
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const PROJECTS = [
   {
     name: 'HanInk',
     type: 'Web Application',
-    desc: 'A browser-based tool that transforms any typed text (Chinese characters or English) into Chinese calligraphic tattoo previews. Users can explore authentic script styles, verify character meanings, preview placement on the body, and export tattoo-ready images to bring to their artist.',
+    desc: 'A Browser-based Chinese calligraphy tattoo preview tool. Choose from 12 authentic script styles, preview placement on an interactive 3D body model, verify character meanings, and export print-ready PNG/SVG files. Built with Next.js, React Three Fiber, TypeScript, and deployed on AWS Amplify.',
     stack: ['NEXT.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS', 'Three.js', 'Html2Canvas', 'Blob'],
     status: 'Deployed',
     link: 'https://github.com/Chao-777/HanInk',
+    website: 'https://haninkcalli.com/',
+    thumbnail: '/HanInk.png',
   },
   {
     name: 'ReviewIt',
     type: 'Web Application',
     desc: 'A platform where users can review, rate, and discuss anything across flexible categories — products, books, media, ideas, and experiences. Features JWT authentication, role-based access, and a CI/CD deployment pipeline.',
-    stack: ['C#', '.NET', 'TypeScript', 'React', 'PostgreSQL', 'Tailwind CSS', 'AWS', ],
-    status: 'Deployed',
+    stack: ['C#', '.NET', 'TypeScript', 'React', 'PostgreSQL', 'Tailwind CSS', ],
+    status: 'In Development',
     link: 'https://github.com/Chao-777/ReviewIt',
   },
   {
@@ -22,7 +24,7 @@ const PROJECTS = [
     type: 'AWS Lambda Application',
     desc: 'An end-to-end serverless pipeline on AWS that automatically extracts, stores, and notifies on receipt data — zero servers, zero manual processing.',
     stack: ['Python', 'Lambda', 'DynamoDB', 'S3', 'SES'],
-    status: 'Deployed',
+    status: 'Available on GitHub',
     link: 'https://github.com/Chao-777/Hogwarts-education-system',
   },
   {
@@ -30,7 +32,7 @@ const PROJECTS = [
     type: 'Web Application',
     desc: 'Education management platform with user registration, authentication, course management, and peer review assessments. Responsive UI built with Bootstrap and Blade templates.',
     stack: ['PHP', 'Laravel', 'MySQL', 'Bootstrap', 'Blade'],
-    status: 'Deployed',
+    status: 'Available on GitHub',
     link: 'https://github.com/Chao-777/Hogwarts-education-system',
   },
   {
@@ -38,7 +40,7 @@ const PROJECTS = [
     type: 'Mobile Application',
     desc: 'Educational mobile app for pharmacy students to learn correct drug pronunciation. Features audio playback, speed control, voice recording, pronunciation evaluation, and student rankings.',
     stack: ['JavaScript', 'React Native', 'Audio Processing', 'Authentication', 'Backend API'],
-    status: 'Deployed',
+    status: 'Available on GitHub',
     link: 'https://github.com/Chao-777/Drug-Speak',
   },
 ];
@@ -51,25 +53,40 @@ export const Projects = () => {
           {PROJECTS.map((proj, i) => (
             <div key={i} className="project-card">
 
-              {/* Status / icon column */}
+              {/* Thumbnail or status column */}
               <div
                 style={{
                   flexShrink: 0,
-                  width: '130px',
+                  width: '150px',
                   paddingTop: '0.2rem',
                 }}
               >
-                <span
-                  style={{
-                    color: proj.status === 'Deployed' ? 'var(--c-primary)' : 'var(--c-faint)',
-                    fontSize: '0.72rem',
-                    fontWeight: 500,
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  {proj.status}
-                </span>
+                {proj.thumbnail ? (
+                  <img
+                    src={`${import.meta.env.BASE_URL}${proj.thumbnail.replace(/^\//, '')}`}
+                    alt={`${proj.name} thumbnail`}
+                    style={{
+                      width: '160px',
+                      height: '86px',
+                      objectFit: 'cover',
+                      borderRadius: '6px',
+                      border: '2px solid var(--c-border)',
+                      display: 'block',
+                    }}
+                  />
+                ) : (
+                  <span
+                    style={{
+                      color: proj.status === 'Deployed' ? 'var(--c-primary)' : 'var(--c-faint)',
+                      fontSize: '0.72rem',
+                      fontWeight: 500,
+                      letterSpacing: '0.04em',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    {proj.status}
+                  </span>
+                )}
               </div>
 
               {/* Content column */}
@@ -99,6 +116,19 @@ export const Projects = () => {
                       aria-label={`${proj.name} GitHub`}
                     >
                       <FaGithub size={16} />
+                    </a>
+                  )}
+                  {proj.website && (
+                    <a
+                      href={proj.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'var(--c-faint)', transition: 'color 0.2s' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--c-primary)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--c-faint)')}
+                      aria-label={`${proj.name} website`}
+                    >
+                      <FaExternalLinkAlt size={14} />
                     </a>
                   )}
                 </div>
