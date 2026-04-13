@@ -2,7 +2,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const PROJECTS = [
   {
-    name: 'HanInk',
+    name: 'HanInk.com',
     type: 'Web Application',
     desc: 'A Browser-based Chinese calligraphy tattoo preview tool. Choose from 12 authentic script styles, preview placement on an interactive 3D body model, verify character meanings, and export print-ready PNG/SVG files. Built with Next.js, React Three Fiber, TypeScript, and deployed on AWS Amplify.',
     stack: ['NEXT.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS', 'Three.js', 'Html2Canvas', 'Blob'],
@@ -61,7 +61,8 @@ export const Projects = () => {
                   paddingTop: '0.2rem',
                 }}
               >
-                {proj.thumbnail ? (
+            {proj.thumbnail ? (
+                <> {/* <--- Start Fragment */}
                   <img
                     src={`${import.meta.env.BASE_URL}${proj.thumbnail.replace(/^\//, '')}`}
                     alt={`${proj.name} thumbnail`}
@@ -72,8 +73,21 @@ export const Projects = () => {
                       borderRadius: '6px',
                       border: '2px solid var(--c-border)',
                       display: 'block',
+                      marginBottom: '4px' // Added a little margin for spacing
                     }}
                   />
+                  <span
+                    style={{
+                      color: proj.status === 'Deployed' ? 'var(--c-primary)' : 'var(--c-faint)',
+                      fontSize: '0.72rem',
+                      fontWeight: 500,
+                      letterSpacing: '0.04em',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    {proj.status}
+                  </span>
+                </>
                 ) : (
                   <span
                     style={{
