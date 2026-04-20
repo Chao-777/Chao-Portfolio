@@ -2,10 +2,10 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const PROJECTS = [
   {
-    name: 'HanInk.com',
-    type: 'Web Application',
-    desc: 'A Browser-based Chinese calligraphy tattoo preview tool. Choose from 12 authentic script styles, preview placement on an interactive 3D body model, verify character meanings, and export print-ready PNG/SVG files. Built with Next.js, React Three Fiber, TypeScript, and deployed on AWS Amplify.',
-    stack: ['NEXT.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS', 'Three.js', 'Html2Canvas', 'Blob'],
+    name: 'Haninkcalli.com',
+    type: 'Full Stack Web Application',
+    desc: 'A browser-based Chinese calligraphy tattoo design tool featuring 12 authentic script styles, interactive 3D body placement preview, character meaning verification, and PNG/SVG export. Architected with Next.js App Router, AWS Cognito authentication, AppSync/GraphQL data layer, and deployed via AWS Amplify CI/CD.',
+    stack: ['NEXT.js', 'React', 'TypeScript', 'Tailwind CSS', 'AWS', 'Three.js'],
     status: 'Deployed',
     link: 'https://github.com/Chao-777/HanInk',
     website: 'https://haninkcalli.com/',
@@ -13,7 +13,7 @@ const PROJECTS = [
   },
   {
     name: 'ReviewIt',
-    type: 'Web Application',
+    type: 'Full Stack Web Application',
     desc: 'A platform where users can review, rate, and discuss anything across flexible categories — products, books, media, ideas, and experiences. Features JWT authentication, role-based access, and a CI/CD deployment pipeline.',
     stack: ['C#', '.NET', 'TypeScript', 'React', 'PostgreSQL', 'Tailwind CSS', ],
     status: 'In Development',
@@ -29,7 +29,7 @@ const PROJECTS = [
   },
   {
     name: 'Education Management System',
-    type: 'Web Application',
+    type: 'Full Stack Application',
     desc: 'Education management platform with user registration, authentication, course management, and peer review assessments. Responsive UI built with Bootstrap and Blade templates.',
     stack: ['PHP', 'Laravel', 'MySQL', 'Bootstrap', 'Blade'],
     status: 'Available on GitHub',
